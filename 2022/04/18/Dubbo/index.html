@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="TaoHongqiang">
+    
+    <title>
+        
+            Dubbo入门 |
+        
+        敢&#39;笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"你努力的样子藏着你父母幸福的晚年"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                敢&#39;笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Dubbo入门</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">TaoHongqiang</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 13:36:06</span>
+        <span class="mobile">2022-04-18 13:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="用于网络层传输的必须实现Serializable"><a href="#用于网络层传输的必须实现Serializable" class="headerlink" title="用于网络层传输的必须实现Serializable"></a>用于网络层传输的必须实现Serializable</h3><p>启动时检查 设置false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboReference(check = false)</span> <span class="comment">// 启动时 不检查服务是否存在 调用时依然会检查</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1、掌握Dubbo运行流程"><a href="#1、掌握Dubbo运行流程" class="headerlink" title="1、掌握Dubbo运行流程"></a>1、掌握Dubbo运行流程</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220325140948747.png"
+                      alt="image-20220325140948747"
+                ></p>
+<p>服务提供者先启动，然后注册register服务。消费者订阅subscribe服务，如果没有订阅到自己想获得的服务，它会不断的尝试订阅。新的服务注册到注册中心以后，注册中心会将这些服务通过notify通知到消费者。</p>
+<h2 id="2、掌握Dubbo配置-超时、重试、灰度发布、启动检查等"><a href="#2、掌握Dubbo配置-超时、重试、灰度发布、启动检查等" class="headerlink" title="2、掌握Dubbo配置-超时、重试、灰度发布、启动检查等"></a>2、掌握Dubbo配置-超时、重试、灰度发布、启动检查等</h2><p>dubbo协议端口 20880</p>
+<h3 id="1-超时"><a href="#1-超时" class="headerlink" title="1.超时"></a>1.超时</h3><p>配置优先级(消费方 &gt; 提供方)</p>
+<h4 id="提供方"><a href="#提供方" class="headerlink" title="提供方"></a>提供方</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboService(timeout = 2000)</span> <span class="comment">//单位毫秒</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="消费方"><a href="#消费方" class="headerlink" title="消费方"></a>消费方</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboReference(timeout = 1000)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="级别优先级-方法级别-gt-接口级别-gt-通用配置级别"><a href="#级别优先级-方法级别-gt-接口级别-gt-通用配置级别" class="headerlink" title="级别优先级(方法级别 &gt; 接口级别 &gt; 通用配置级别)"></a>级别优先级(方法级别 &gt; 接口级别 &gt; 通用配置级别)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法级别</span></span><br><span class="line"><span class="meta">@DubboService(method = (</span></span><br><span class="line"><span class="meta">  @Method(name = &quot;方法名&quot; , timeout = 1000)</span></span><br><span class="line"><span class="meta">))</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">配置原则配置的目的:</span><br><span class="line">1.先配置服务提供方相关配置</span><br><span class="line">2.如果提供方的配置在消费方不满足使用,则可以在消费方优化</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-重试"><a href="#2-重试" class="headerlink" title="2.重试"></a>2.重试</h3><p>只有远程调用失败(异常)的时候才会触发重试</p>
+<p>默认重试次数2次;第一次正常调用</p>
+<p>修改重试次数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboService(timeout = 2000,retries = 1)</span> <span class="comment">//单位毫秒 重试次数</span></span><br><span class="line"><span class="comment">//幂等性：相同的url无论请求多少次,结果是一致的.</span></span><br><span class="line"><span class="comment">//非幂等:前提数据库id自增 新增(POST) 非表单修改(PUT)   &gt;&gt;&gt;    重试次数0次</span></span><br><span class="line"><span class="comment">//幂等:查询(GET) 删除(DELETE) 表单提交修改(PUT) 	   &gt;&gt;&gt;		重试次数不大于2次(原因:重试量大,可能会造成服务器宕机)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、灰度发布"><a href="#3、灰度发布" class="headerlink" title="3、灰度发布"></a>3、灰度发布</h3><h4 id="概念-当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。"><a href="#概念-当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。" class="headerlink" title="概念:当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。"></a>概念:当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。</h4><p>使用方式</p>
+<h4 id="提供方-1"><a href="#提供方-1" class="headerlink" title="提供方:"></a>提供方:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboService(version == &quot;2.0.0&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="消费方-1"><a href="#消费方-1" class="headerlink" title="消费方:"></a>消费方:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboReference(version = &quot;2.0.0&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、上下文信息"><a href="#4、上下文信息" class="headerlink" title="4、上下文信息"></a>4、上下文信息</h3><h4 id="概念-通过上下文存放当前调用过程中所需的环境信息"><a href="#概念-通过上下文存放当前调用过程中所需的环境信息" class="headerlink" title="概念:通过上下文存放当前调用过程中所需的环境信息"></a>概念:通过上下文存放当前调用过程中所需的环境信息</h4><p>RpcContext 是一个 ThreadLocal 的临时状态记录器，当接收到 RPC 请求，或发起 RPC 请求时，RpcContext 的状态都会变化。比如：A 调 B，B 再调 C，则 B 机器上，在 B 调 C 之前，RpcContext 记录的是 A 调 B 的信息，在 B 调 C 之后，RpcContext 记录的是 B 调 C 的信息。</p>
+<h4 id="服务消费方"><a href="#服务消费方" class="headerlink" title="服务消费方:"></a>服务消费方:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 远程调用</span></span><br><span class="line">xxxService.xxx();</span><br><span class="line"><span class="comment">// 本端是否为消费端，这里会返回true</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">isConsumerSide</span> <span class="operator">=</span> RpcContext.getContext().isConsumerSide();</span><br><span class="line"><span class="comment">// 获取最后一次调用的提供方IP地址</span></span><br><span class="line"><span class="type">String</span> <span class="variable">serverIP</span> <span class="operator">=</span> RpcContext.getContext().getRemoteHost();</span><br><span class="line"><span class="comment">// 获取当前服务配置信息，所有配置信息都将转换为URL的参数</span></span><br><span class="line"><span class="type">String</span> <span class="variable">application</span> <span class="operator">=</span> RpcContext.getContext().getUrl().getParameter(<span class="string">&quot;application&quot;</span>);</span><br><span class="line"><span class="comment">// 注意：每发起RPC调用，上下文状态会变化</span></span><br><span class="line">yyyService.yyy();</span><br></pre></td></tr></table></figure>
+
+<h4 id="服务提供方"><a href="#服务提供方" class="headerlink" title="服务提供方:"></a>服务提供方:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">XxxServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">XxxService</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">xxx</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 本端是否为提供端，这里会返回true</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">isProviderSide</span> <span class="operator">=</span> RpcContext.getContext().isProviderSide();</span><br><span class="line">        <span class="comment">// 获取调用方IP地址</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">clientIP</span> <span class="operator">=</span> RpcContext.getContext().getRemoteHost();</span><br><span class="line">        <span class="comment">// 获取当前服务配置信息，所有配置信息都将转换为URL的参数</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">application</span> <span class="operator">=</span> RpcContext.getContext().getUrl().getParameter(<span class="string">&quot;application&quot;</span>);</span><br><span class="line">        <span class="comment">// 注意：每发起RPC调用，上下文状态会变化</span></span><br><span class="line">        yyyService.yyy();</span><br><span class="line">        <span class="comment">// 此时本端变成消费端，这里会返回false</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">isProviderSide</span> <span class="operator">=</span> RpcContext.getContext().isProviderSide();</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、隐式传参"><a href="#5、隐式传参" class="headerlink" title="5、隐式传参"></a>5、隐式传参</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念:"></a>概念:</h4><p>​    通过 Dubbo 中的 Attachment 在服务消费方和提供方之间隐式传递参数</p>
+<p>可以通过 <code>RpcContext</code> 上的 <code>setAttachment</code> 和 <code>getAttachment</code> 在服务消费方和提供方之间进行参数的隐式传递。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>path, group, version, dubbo, token, timeout 几个 key 是保留字段，请使用其它值。</p>
+<p><img src="https://dubbo.apache.org/imgs/user/context.png" alt="/user-guide/images/context.png"></p>
+<h4 id="在服务消费方端设置隐式参数"><a href="#在服务消费方端设置隐式参数" class="headerlink" title="在服务消费方端设置隐式参数"></a>在服务消费方端设置隐式参数</h4><p><code>setAttachment</code> 设置的 KV 对，在完成下面一次远程调用会被清空，即多次远程调用要多次设置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RpcContext.getContext().setAttachment(<span class="string">&quot;index&quot;</span>, <span class="string">&quot;1&quot;</span>); <span class="comment">// 隐式传参，后面的远程调用都会隐式将这些参数发送到服务器端，类似cookie，用于框架集成，不建议常规业务使用</span></span><br><span class="line">xxxService.xxx(); <span class="comment">// 远程调用</span></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在服务提供方端获取隐式参数"><a href="#在服务提供方端获取隐式参数" class="headerlink" title="在服务提供方端获取隐式参数"></a>在服务提供方端获取隐式参数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">XxxServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">XxxService</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">xxx</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 获取客户端隐式传入的参数，用于框架集成，不建议常规业务使用</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">index</span> <span class="operator">=</span> RpcContext.getContext().getAttachment(<span class="string">&quot;index&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、Dubbo负载均衡有几种，默认是什么"><a href="#3、Dubbo负载均衡有几种，默认是什么" class="headerlink" title="3、Dubbo负载均衡有几种，默认是什么"></a>3、Dubbo负载均衡有几种，默认是什么</h2><h3 id="1-负载均衡策略-默认随机Random-LoadBalance"><a href="#1-负载均衡策略-默认随机Random-LoadBalance" class="headerlink" title="1.负载均衡策略 默认随机Random LoadBalance"></a>1.负载均衡策略 默认随机Random LoadBalance</h3><h3 id="修改方式"><a href="#修改方式" class="headerlink" title="修改方式:"></a>修改方式:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboRefernce(loadbalance = &quot;roundrobin&quot;,weight = 200)</span> <span class="comment">//轮询 权重</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Random-LoadBalance"><a href="#Random-LoadBalance" class="headerlink" title="Random LoadBalance"></a>Random LoadBalance</h3><ul>
+<li><strong>随机</strong>，按权重设置随机概率。</li>
+<li>在一个截面上碰撞的概率高，但调用量越大分布越均匀，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。</li>
+</ul>
+<h3 id="RoundRobin-LoadBalance"><a href="#RoundRobin-LoadBalance" class="headerlink" title="RoundRobin LoadBalance"></a>RoundRobin LoadBalance</h3><ul>
+<li><p><strong>轮询</strong>，按公约后的权重设置轮询比率。</p>
+</li>
+<li><p>存在慢的提供者累积请求的问题，比如：第二台机器很慢，但没挂，当请求调到第二台时就卡在那，久而久之，所有请求都卡在调到第二台上。</p>
+<p>按照权重 看每个服务能承担几个 在还能承担的服务器上轮询</p>
+</li>
+</ul>
+<h3 id="LeastActive-LoadBalance"><a href="#LeastActive-LoadBalance" class="headerlink" title="LeastActive LoadBalance"></a>LeastActive LoadBalance</h3><ul>
+<li><strong>最少活跃调用数</strong>，相同活跃数的随机，活跃数指调用前后计数差。</li>
+<li>使慢的提供者收到更少请求，因为越慢的提供者的调用前后计数差会越大。</li>
+</ul>
+<h3 id="ConsistentHash-LoadBalance"><a href="#ConsistentHash-LoadBalance" class="headerlink" title="ConsistentHash LoadBalance"></a>ConsistentHash LoadBalance</h3><ul>
+<li><strong>一致性 Hash</strong>，相同参数的请求总是发到同一提供者。</li>
+<li>当某一台提供者挂时，原本发往该提供者的请求，基于虚拟节点，平摊到其它提供者，不会引起剧烈变动。</li>
+<li>算法参见：<a class="link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Consistent_hashing" >http://en.wikipedia.org/wiki/Consistent_hashing<i class="fas fa-external-link-alt"></i></a></li>
+<li>缺省只对第一个参数 Hash，如果要修改，请配置 <code>&lt;dubbo:parameter key=&quot;hash.arguments&quot; value=&quot;0,1&quot; /&gt;</code></li>
+<li>缺省用 160 份虚拟节点，如果要修改，请配置 <code>&lt;dubbo:parameter key=&quot;hash.nodes&quot; value=&quot;320&quot; /&gt;</code></li>
+</ul>
+<h2 id="4、Dubbo服务熔断降级有如何实现，容错机制有几种"><a href="#4、Dubbo服务熔断降级有如何实现，容错机制有几种" class="headerlink" title="4、Dubbo服务熔断降级有如何实现，容错机制有几种"></a>4、Dubbo服务熔断降级有如何实现，容错机制有几种</h2><h3 id="服务降级"><a href="#服务降级" class="headerlink" title="服务降级"></a>服务降级</h3><p>降级 Dubbo 服务</p>
+<p>可以通过服务降级功能临时屏蔽某个出错的非关键服务，并定义降级后的返回策略。</p>
+<p>向注册中心写入动态配置覆盖规则：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RegistryFactory</span> <span class="variable">registryFactory</span> <span class="operator">=</span> ExtensionLoader.getExtensionLoader(RegistryFactory.class).getAdaptiveExtension();</span><br><span class="line"><span class="type">Registry</span> <span class="variable">registry</span> <span class="operator">=</span> registryFactory.getRegistry(URL.valueOf(<span class="string">&quot;zookeeper://10.20.153.10:2181&quot;</span>));</span><br><span class="line">registry.register(URL.valueOf(<span class="string">&quot;override://0.0.0.0/com.foo.BarService?category=configurators&amp;dynamic=false&amp;application=foo&amp;mock=force:return+null&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><p><code>mock=force:return+null</code> 表示消费方对该服务的方法调用都直接返回 null 值，不发起远程调用。用来屏蔽不重要服务不可用时对调用方的影响。</p>
+</li>
+<li><p>还可以改为 <code>mock=fail:return+null</code> 表示消费方对该服务的方法调用在失败后，再返回 null 值，不抛异常。用来容忍不重要服务不稳定时对调用方的影响。</p>
+</li>
+</ul>
+<h3 id="容错机制"><a href="#容错机制" class="headerlink" title="容错机制"></a>容错机制</h3><h4 id="在集群调用失败时，Dubbo-提供了多种容错方案，缺省为-failover-重试。失败快速切换"><a href="#在集群调用失败时，Dubbo-提供了多种容错方案，缺省为-failover-重试。失败快速切换" class="headerlink" title="在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。失败快速切换"></a>在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。失败快速切换</h4><p>失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。可通过 <code>retries=&quot;2&quot;</code> 来设置重试次数(不含第一次)。</p>
+<p>使用方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DubboReference(cluster = &quot;Failover&quot;)</span></span><br><span class="line"><span class="comment">//Failover Cluster</span></span><br><span class="line">失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。可通过 retries=<span class="string">&quot;2&quot;</span> 来设置重试次数(不含第一次)。</span><br><span class="line">  </span><br><span class="line"><span class="comment">//Failfast Cluster</span></span><br><span class="line">快速失败，只发起一次调用，失败立即报错。通常用于非幂等性的写操作，比如新增记录。</span><br><span class="line"></span><br><span class="line"><span class="comment">//Failsafe Cluster</span></span><br><span class="line">失败安全，出现异常时，直接忽略。通常用于写入审计日志等操作。</span><br><span class="line"></span><br><span class="line"><span class="comment">//Failback Cluster</span></span><br><span class="line">失败自动恢复，后台记录失败请求，定时重发。通常用于消息通知操作。</span><br><span class="line"></span><br><span class="line"><span class="comment">//Forking Cluster</span></span><br><span class="line">并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过 forks=<span class="string">&quot;2&quot;</span> 来设置最大并行数。</span><br><span class="line"></span><br><span class="line"><span class="comment">//Broadcast Cluster</span></span><br><span class="line">广播调用所有提供者，逐个调用，任意一台报错则报错。通常用于通知所有提供者更新缓存或日志等本地资源信息。</span><br><span class="line"></span><br><span class="line">现在广播调用中，可以通过 broadcast.fail.percent 配置节点调用失败的比例，当达到这个比例后，BroadcastClusterInvoker 将不再调用其他节点，直接抛出异常。 broadcast.fail.percent 取值在 <span class="number">0</span>～<span class="number">100</span> 范围内。默认情况下当全部调用失败后，才会抛出异常。 broadcast.fail.percent 只是控制的当失败后是否继续调用其他节点，并不改变结果(任意一台报错则报错)。broadcast.fail.percent 参数 在 dubbo2<span class="number">.7</span><span class="number">.10</span> 及以上版本生效。</span><br><span class="line"></span><br><span class="line">Broadcast Cluster 配置 broadcast.fail.percent。</span><br><span class="line"></span><br><span class="line">broadcast.fail.percent=<span class="number">20</span> 代表了当 <span class="number">20</span>% 的节点调用失败就抛出异常，不再调用其他节点。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、SpringCloud-和-Dubbo-区别（面试题）"><a href="#5、SpringCloud-和-Dubbo-区别（面试题）" class="headerlink" title="5、SpringCloud 和 Dubbo 区别（面试题）"></a>5、SpringCloud 和 Dubbo 区别（面试题）</h2><h3 id="架构图区别"><a href="#架构图区别" class="headerlink" title="架构图区别"></a>架构图区别</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220325202807065.png"
+                      alt="image-20220325202807065"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220325202651864.png"
+                      alt="image-20220325202651864"
+                ></p>
+<h3 id="总揽"><a href="#总揽" class="headerlink" title="总揽"></a>总揽</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Dubbo</th>
+<th>SpringCloud</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务注册中心</td>
+<td>nacos</td>
+<td>Eureka</td>
+</tr>
+<tr>
+<td>服务调用方式</td>
+<td>RPC</td>
+<td>REST API</td>
+</tr>
+<tr>
+<td>服务监控</td>
+<td>Dubbo-monitor</td>
+<td>Spring boot Admin</td>
+</tr>
+<tr>
+<td>熔断器</td>
+<td>不完善</td>
+<td>Spring Cloud netfix Hystrix</td>
+</tr>
+<tr>
+<td>服务网关</td>
+<td>无</td>
+<td>Spring Cloud Zuul</td>
+</tr>
+<tr>
+<td>分布式配置</td>
+<td>无</td>
+<td>Spring Cloud Config</td>
+</tr>
+<tr>
+<td>服务跟踪</td>
+<td>无</td>
+<td>Spring cloud sleuth</td>
+</tr>
+<tr>
+<td>数据流</td>
+<td>无</td>
+<td>Spring Cloud Stream</td>
+</tr>
+<tr>
+<td>批量任务</td>
+<td>无</td>
+<td>Spring Cloud Task</td>
+</tr>
+<tr>
+<td>信息总线</td>
+<td>无</td>
+<td>Spring cloud Bus</td>
+</tr>
+</tbody></table>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别:"></a>区别:</h3><h4 id="传输协议的区别"><a href="#传输协议的区别" class="headerlink" title="传输协议的区别"></a>传输协议的区别</h4><p>Dubbo底层使用Netty这样的Nio框架,基于tcp传输,配合以Hession序列化完成RPC通信;</p>
+<p>SpringCloud是基于Http协议+rest接口调用远程过程的通信,相对来说,Http请求会有更大的报文，占的带宽也会更多。但是REST相比RPC更为灵活，服务提供方和调用方的依赖只依靠一纸契约，不存在代码级别的强依赖，这在强调快速演化的微服务环境下，显得更为合适，至于注重通信速度还是方便灵活性，具体情况具体考虑。</p>
+<h4 id="定位区别："><a href="#定位区别：" class="headerlink" title="定位区别："></a>定位区别：</h4><p>Dubbo 是 SOA 时代的产物，它的关注点主要在于服务的调用，流量分发、流量监控和熔断;而Spring Cloud 诞生于微服务架构时代，考虑的是微服务治理的方方面面，另外由于依托Spirng、Spirng Boot 的优势之上，两个框架在开始目标就不一致，Dubbo 定位服务治理、Spirng Cloud 是一个生态。</p>
+<h4 id="模块区别："><a href="#模块区别：" class="headerlink" title="模块区别："></a>模块区别：</h4><p>1、Dubbo主要分为服务注册中心，服务提供者，服务消费者，还有管控中心；</p>
+<p>2、相比起Dubbo简单的四个模块，SpringCloud则是一个完整的分布式一站式框架，他有着一样的服务注册中心，服务提供者，服务消费者，管控台，断路器，分布式配置服务，消息总线，以及服务追踪等；</p>
+<h2 id="6、Eureka和Nacos区别"><a href="#6、Eureka和Nacos区别" class="headerlink" title="6、Eureka和Nacos区别"></a>6、Eureka和Nacos区别</h2><h3 id="CAP定律"><a href="#CAP定律" class="headerlink" title="CAP定律"></a>CAP定律</h3><p>这个定理的内容是指的是在一个分布式系统中、Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可得兼。</p>
+<h5 id="一致性（C）"><a href="#一致性（C）" class="headerlink" title="一致性（C）"></a>一致性（C）</h5><p>在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）</p>
+<h5 id="可用性（A）"><a href="#可用性（A）" class="headerlink" title="可用性（A）"></a>可用性（A）</h5><p>在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）</p>
+<h5 id="分区容错性（P）"><a href="#分区容错性（P）" class="headerlink" title="分区容错性（P）"></a>分区容错性（P）</h5><p>以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。</p>
+<h3 id="区别-1"><a href="#区别-1" class="headerlink" title="区别:"></a>区别:</h3><h4 id="定律的区别："><a href="#定律的区别：" class="headerlink" title="定律的区别："></a>定律的区别：</h4><p>​    Eureka采用AP模式形式实现注册中心</p>
+<p>​    Nacos默认采用AP模式。在1.0版本之后采用AP+CP模式混合实现注册中心。</p>
+<h4 id="作用的区别"><a href="#作用的区别" class="headerlink" title="作用的区别:"></a>作用的区别:</h4><table>
+<thead>
+<tr>
+<th>nacos</th>
+<th align="left">Eureka</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nacos在自动或手动下线服务，使用消息机制通知客户端，服务实例的修改很快响应</td>
+<td align="left">Eureka只能通过任务定时剔除无效的服务。</td>
+</tr>
+<tr>
+<td>nacos可以根据namespace命名空间，DataId,Group分组，来区分不同环境（dev，test，prod），不同项目的配置。</td>
+<td align="left">无</td>
+</tr>
+</tbody></table>
+<h4 id="Eureka与Nacos底层实现集群协议："><a href="#Eureka与Nacos底层实现集群协议：" class="headerlink" title="Eureka与Nacos底层实现集群协议："></a>Eureka与Nacos底层实现集群协议：</h4><p>​    去中心化对等。</p>
+<p>​    Raft协议实现集群产生领导角色。</p>
+<h4 id="Raft到底是什么：分布式一致性协议的算法"><a href="#Raft到底是什么：分布式一致性协议的算法" class="headerlink" title="Raft到底是什么：分布式一致性协议的算法"></a>Raft到底是什么：分布式一致性协议的算法</h4><p>分布式系统一致性算法 应用于系统软件实现集群保持每个节点数据的同步性</p>
+<p>保持我们的集群中每个节点的数据的一致性的问题，专业的术语分布式一致性的算法。</p>
+<p>场景：Redis集群、nacos集群、mongdb集群等</p>
+<p>CP情况下：虽然我们服务不能用，但是必须要保证数据的一致性</p>
+<p>AP情况下：可以短暂保证数据不一致性，但是最终可以一致性，不管怎么样，要能够保证我们的服务可用</p>
+<p>所以大多的注册中心都是AP</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/18/03_SpringMVC/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SpringMVC</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/ElasticSearch%E5%B0%8F%E7%BB%931/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ElasticSearch小结1</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">TaoHongqiang</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E7%BD%91%E7%BB%9C%E5%B1%82%E4%BC%A0%E8%BE%93%E7%9A%84%E5%BF%85%E9%A1%BB%E5%AE%9E%E7%8E%B0Serializable"><span class="nav-text">用于网络层传输的必须实现Serializable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%8E%8C%E6%8F%A1Dubbo%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-text">1、掌握Dubbo运行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%8E%8C%E6%8F%A1Dubbo%E9%85%8D%E7%BD%AE-%E8%B6%85%E6%97%B6%E3%80%81%E9%87%8D%E8%AF%95%E3%80%81%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83%E3%80%81%E5%90%AF%E5%8A%A8%E6%A3%80%E6%9F%A5%E7%AD%89"><span class="nav-text">2、掌握Dubbo配置-超时、重试、灰度发布、启动检查等</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B6%85%E6%97%B6"><span class="nav-text">1.超时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E4%BE%9B%E6%96%B9"><span class="nav-text">提供方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E6%96%B9"><span class="nav-text">消费方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A7%E5%88%AB%E4%BC%98%E5%85%88%E7%BA%A7-%E6%96%B9%E6%B3%95%E7%BA%A7%E5%88%AB-gt-%E6%8E%A5%E5%8F%A3%E7%BA%A7%E5%88%AB-gt-%E9%80%9A%E7%94%A8%E9%85%8D%E7%BD%AE%E7%BA%A7%E5%88%AB"><span class="nav-text">级别优先级(方法级别 &gt; 接口级别 &gt; 通用配置级别)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%87%8D%E8%AF%95"><span class="nav-text">2.重试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83"><span class="nav-text">3、灰度发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-%E5%BD%93%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%87%BA%E7%8E%B0%E4%B8%8D%E5%85%BC%E5%AE%B9%E5%8D%87%E7%BA%A7%E6%97%B6%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%94%A8%E7%89%88%E6%9C%AC%E5%8F%B7%E8%BF%87%E6%B8%A1%EF%BC%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E4%B8%8D%E5%90%8C%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%9B%B8%E4%BA%92%E9%97%B4%E4%B8%8D%E5%BC%95%E7%94%A8%E3%80%82"><span class="nav-text">概念:当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E4%BE%9B%E6%96%B9-1"><span class="nav-text">提供方:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E6%96%B9-1"><span class="nav-text">消费方:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BF%A1%E6%81%AF"><span class="nav-text">4、上下文信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-%E9%80%9A%E8%BF%87%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AD%98%E6%94%BE%E5%BD%93%E5%89%8D%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%89%80%E9%9C%80%E7%9A%84%E7%8E%AF%E5%A2%83%E4%BF%A1%E6%81%AF"><span class="nav-text">概念:通过上下文存放当前调用过程中所需的环境信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E6%96%B9"><span class="nav-text">服务消费方:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E6%96%B9"><span class="nav-text">服务提供方:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E9%9A%90%E5%BC%8F%E4%BC%A0%E5%8F%82"><span class="nav-text">5、隐式传参</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-text">注意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E6%96%B9%E7%AB%AF%E8%AE%BE%E7%BD%AE%E9%9A%90%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="nav-text">在服务消费方端设置隐式参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E6%96%B9%E7%AB%AF%E8%8E%B7%E5%8F%96%E9%9A%90%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="nav-text">在服务提供方端获取隐式参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Dubbo%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%9C%89%E5%87%A0%E7%A7%8D%EF%BC%8C%E9%BB%98%E8%AE%A4%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">3、Dubbo负载均衡有几种，默认是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5-%E9%BB%98%E8%AE%A4%E9%9A%8F%E6%9C%BARandom-LoadBalance"><span class="nav-text">1.负载均衡策略 默认随机Random LoadBalance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%B9%E5%BC%8F"><span class="nav-text">修改方式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-LoadBalance"><span class="nav-text">Random LoadBalance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RoundRobin-LoadBalance"><span class="nav-text">RoundRobin LoadBalance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LeastActive-LoadBalance"><span class="nav-text">LeastActive LoadBalance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConsistentHash-LoadBalance"><span class="nav-text">ConsistentHash LoadBalance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81Dubbo%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E9%99%8D%E7%BA%A7%E6%9C%89%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%8C%E5%AE%B9%E9%94%99%E6%9C%BA%E5%88%B6%E6%9C%89%E5%87%A0%E7%A7%8D"><span class="nav-text">4、Dubbo服务熔断降级有如何实现，容错机制有几种</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7"><span class="nav-text">服务降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E9%94%99%E6%9C%BA%E5%88%B6"><span class="nav-text">容错机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E9%9B%86%E7%BE%A4%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E6%97%B6%EF%BC%8CDubbo-%E6%8F%90%E4%BE%9B%E4%BA%86%E5%A4%9A%E7%A7%8D%E5%AE%B9%E9%94%99%E6%96%B9%E6%A1%88%EF%BC%8C%E7%BC%BA%E7%9C%81%E4%B8%BA-failover-%E9%87%8D%E8%AF%95%E3%80%82%E5%A4%B1%E8%B4%A5%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2"><span class="nav-text">在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。失败快速切换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81SpringCloud-%E5%92%8C-Dubbo-%E5%8C%BA%E5%88%AB%EF%BC%88%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%89"><span class="nav-text">5、SpringCloud 和 Dubbo 区别（面试题）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE%E5%8C%BA%E5%88%AB"><span class="nav-text">架构图区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E6%8F%BD"><span class="nav-text">总揽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">传输协议的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">定位区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">模块区别：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81Eureka%E5%92%8CNacos%E5%8C%BA%E5%88%AB"><span class="nav-text">6、Eureka和Nacos区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CAP%E5%AE%9A%E5%BE%8B"><span class="nav-text">CAP定律</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%88C%EF%BC%89"><span class="nav-text">一致性（C）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%EF%BC%88A%EF%BC%89"><span class="nav-text">可用性（A）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E5%AE%B9%E9%94%99%E6%80%A7%EF%BC%88P%EF%BC%89"><span class="nav-text">分区容错性（P）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB-1"><span class="nav-text">区别:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E5%BE%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-text">定律的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">作用的区别:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eureka%E4%B8%8ENacos%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E9%9B%86%E7%BE%A4%E5%8D%8F%E8%AE%AE%EF%BC%9A"><span class="nav-text">Eureka与Nacos底层实现集群协议：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Raft%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%AE%97%E6%B3%95"><span class="nav-text">Raft到底是什么：分布式一致性协议的算法</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

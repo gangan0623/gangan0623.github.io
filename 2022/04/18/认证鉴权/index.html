@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="TaoHongqiang">
+    
+    <title>
+        
+            认证鉴权 |
+        
+        敢&#39;笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"你努力的样子藏着你父母幸福的晚年"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                敢&#39;笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">认证鉴权</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">TaoHongqiang</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 13:36:06</span>
+        <span class="mobile">2022-04-18 13:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>11 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-统一权限-概述"><a href="#1-统一权限-概述" class="headerlink" title="1. 统一权限-概述"></a>1. 统一权限-概述</h1><p><strong>权限：</strong>属于系统安全的范畴，权限管理实现对用户访问系统的控制，按照安全规则或者安全策略控制用户可以访问而且只能访问自己被授权的资源，主要包括<strong>用户身份认证和请求鉴权</strong> 两部分，简称<strong>认证鉴权</strong>。</p>
+<p><strong>认证</strong>： 判断一个用户是否为合法用户的处理过程，最常用的简单身份认证方式是系统通过核对用户输入的用户名和口令，看其是否与系统中存储的该用户的用户名和口令一致，来判断用户身份是否正确</p>
+<p><strong>如下图所示：</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645528797659-e4f34e6d-d5c5-4e12-bd05-f5395765b789-20220418210515806.png"
+                      alt="img"
+                ></p>
+<p>流程: </p>
+<ol>
+<li>用户通过菜单 , 链接 , 按钮 访问系统的资源</li>
+<li>判断该系统资源是否可以匿名访问</li>
+<li>成功 , 继续访问 , 失败, 判断用户是否认证</li>
+<li>如果用户已认证 , 那么直接通过</li>
+<li>用户未认证,跳转到提示界面 , 提示用户进行登录认证</li>
+<li>用户可通过 用户名 + 密码 或者 手机号 + 验证码 的方式进行用户认证</li>
+<li>判断是否认证通过</li>
+<li>通过则继续访问系统资源 , 未通过, 继续认证</li>
+</ol>
+<p><strong>鉴权：</strong> 即访问控制，控制谁能访问哪些资源； 先进行身份认证后需要分配权限方可访问系统的资源，对于某些资源没有权限是无法访问的</p>
+<p><strong>如下图所示：</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645529183217-93cc3da7-6532-458d-944d-13fc8d5152d8-20220418210515946.png"
+                      alt="img"
+                ></p>
+<p><strong>流程:</strong> </p>
+<ol>
+<li>用户访问系统资源</li>
+<li>进行身份认证</li>
+<li>如果认证不通过,继续认证,直到成功为止</li>
+<li>认证成功后,当用户添加到系统中后,分配权限</li>
+<li>使用Set<String> : 泛型用来存储数据: 请求资源映射地址</li>
+<li>查询当前用户所具备的访问权限(拥有的访问资源)</li>
+<li>判断是否拥有访问该资源的权限</li>
+<li>如果没有,那么拒绝访问</li>
+<li>如果有,那么继续访问</li>
+</ol>
+<p><strong>权限控制：</strong>用户是某个**”角色”<strong>、或拥有某个</strong>“资源”**时，才可访问系统资源我们称之为权限控制，权限控制分为下列2类型：</p>
+<ul>
+<li>基于角色</li>
+</ul>
+<p>RBAC基于角色的访问控制（Role-Based Access Control）是以角色为中心进行访问控制，比如：主体的角色为总经理可以查询企业运营报表，查询员工工资信息等，访问控制流程如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645529715770-4ddf2607-8615-423f-9fb8-53174ad25ed5-20220418210515974.png"
+                      alt="img"
+                ></p>
+<ul>
+<li>基于资源</li>
+</ul>
+<p>RBAC基于资源的访问控制（Resource-Based Access Control）是以资源为中心进行访问控制，企业中常用的权限管理方法，实现思路是：将系统操作的每个url配置在资源表中，将资源对应到角色，将角色分配给用户，用户访问系统功能通过Filter进行过虑，过虑器获取到用户访问的url，只要访问的url是用户分配角色中的url则放行继续访问，其具体流程如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645529744979-c4ad62b3-f917-4ec5-bb0a-ee80aa0ee510-20220418210516013.png"
+                      alt="img"
+                ></p>
+<h1 id="2-数据库表结构"><a href="#2-数据库表结构" class="headerlink" title="2. 数据库表结构"></a>2. 数据库表结构</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645529833960-87fac90c-132b-491a-aa08-f4ceca622487-20220418210601671.png"
+                      alt="img"
+                ></p>
+<ul>
+<li><strong>一个企业可以拥有多个用户</strong></li>
+<li><strong>一个用户可以拥有多个角色</strong></li>
+<li><strong>一个角色可以有多个资源</strong></li>
+</ul>
+<p>我们通过***企业 ,用户 , 角色 , 资源***完成整个权限的控制</p>
+<h1 id="3-基础信息管理"><a href="#3-基础信息管理" class="headerlink" title="3. 基础信息管理"></a>3. 基础信息管理</h1><p>商家想申请入驻平台，首先在申请页面【也可以后端录入】进行信息填写，填写完成【运营平台】对商家资质进行审核，审核通过后商家即可入驻使用，如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220418210619812.png"
+                      alt="image-20220418210619812"
+                ></p>
+<ol>
+<li><p>商家在申请页面进行使用申请</p>
+</li>
+<li><p>运营商平台进行审核</p>
+</li>
+<li><ol>
+<li>未通过 , 重新填写资料</li>
+<li>通过后,运营商帮商家开通商家管理员账户</li>
+</ol>
+</li>
+<li><ol>
+<li><ol>
+<li><strong>分配商家的域名 , 账号和密码 , 商家管理员权限</strong></li>
+<li><strong>分配支付密钥</strong></li>
+<li><strong>出使用手册</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>开通后,商家可以对员工进行管理操作</p>
+</li>
+<li><p>开通成功后,运营商发送邮件通知商家开通成功</p>
+</li>
+</ol>
+<ul>
+<li><strong>为什么我们要为商家绑定域名？</strong></li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645530302030-648cc3cd-0cfb-4945-80f0-8d8a2e36e2fc-20220418210516328.png"
+                      alt="img"
+                ></p>
+<ul>
+<li><strong>域名和企业号是如何建立关联?</strong></li>
+</ul>
+<p>找到 model-security-producer 模块的 InitEnterpriseWebSiteInfo 方法，这里主要有4个方法：</p>
+<ol>
+<li><strong>init</strong>：<strong>初始化企业站点信息到redis</strong>，此方法上有**”@PostConstruct”**注解，表示项目启动时即加载信息</li>
+<li><strong>addWebSiteforRedis：</strong>添加缓存中的站点，当我们【新增】企业主体信息时调用此方法</li>
+<li><strong>deleteWebSiteforRedis：</strong> 移除缓存中的站点，当我们【删除、禁用】企业主体信息时调用此方法</li>
+<li><strong>updataWebSiteforRedis：</strong>更新缓存中的站点，当我们【修改禁用】企业主体信息时调用此方法</li>
+</ol>
+<h2 id="1-资源信息"><a href="#1-资源信息" class="headerlink" title="(1) 资源信息"></a>(1) 资源信息</h2><p>资源分类: </p>
+<ul>
+<li>平台: 运营平台可以管理多个子平台，子平台的定义都在运营平台管理</li>
+<li>菜单: 用户登陆以后在右侧显示的菜单列表</li>
+<li>dubbo服务: 对应的服务提供接口</li>
+<li>按钮: 控制按钮的操作性</li>
+</ul>
+<h2 id="2-角色信息"><a href="#2-角色信息" class="headerlink" title="(2) 角色信息"></a>(2) 角色信息</h2><p>为了解决信息系统中访问控制管理的问题，适当简化授权工作量，提高权限管理效率，需要建立基于角色的多系统授权管理模型，其业务管理模式如下：</p>
+<ul>
+<li>由运营平台系统管理员 负责角色的权限及用户分配。</li>
+<li>由运营平台系统管理员 负责 角色的分配权限 ，同时赋予商家管理员 对角色分配用户的权限（定义标准角色，实现权限管理的部分下放）。</li>
+</ul>
+<h2 id="3-用户信息"><a href="#3-用户信息" class="headerlink" title="(3) 用户信息"></a>(3) 用户信息</h2><p>餐掌柜系统中用户分为：<strong>运营商员工、商家平台员工</strong> ，其信息的维护规则如下：</p>
+<ul>
+<li>由运营平台系统管理员 负责角色的权限及用户分配 。</li>
+<li>由运营平台系统管理员 负责 角色的权限分配 ，同时赋予商家管理员 对角色分配用户的权限（定义标准角色，实现权限管理的部分下放）。</li>
+<li><strong>多个运营商之间员工信息是相互隔绝的</strong></li>
+</ul>
+<h1 id="4-统一权限-认证"><a href="#4-统一权限-认证" class="headerlink" title="4. 统一权限-认证"></a>4. 统一权限-认证</h1><p><strong>认证</strong>： 判断一个用户是否为合法用户的处理过程，最常用的简单身份认证方式是系统通过核对用户输入的用户名和口令，看其是否与系统中存储的该用户的用户名和口令一致，来判断用户身份是否正确</p>
+<p><strong>如下图所示：</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220418210811716.png"
+                      alt="image-20220418210811716"
+                ></p>
+<p>实现流程: </p>
+<ol>
+<li><p>用户在登录页面选择登陆方式进行登录认证</p>
+</li>
+<li><p>判断登陆方式(用户名+密码 , 手机号+验证码)</p>
+</li>
+<li><p>校验域名</p>
+</li>
+<li><p>判断是否通过,未通过直接终止</p>
+</li>
+<li><p>如果通过了,通过域名拿出商户号enterpriseId</p>
+</li>
+<li><p>构建Authentication类</p>
+</li>
+<li><p>查询用户明细信息(用户的权限,能访问的资源)</p>
+</li>
+<li><p>创建认证用户(认证管理器ReactiveAuthenticationManager)</p>
+</li>
+<li><p>校验用户密码是否正确</p>
+</li>
+<li><ol>
+<li>错误,走认证失败</li>
+</ol>
+</li>
+<li><ol>
+<li><ol>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645531493500-386630af-2db1-425c-98bd-3d3dbc5323dc-20220418210517071.png"
+                      alt="img"
+                ></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><ol>
+<li>正确走认证成功流程</li>
+</ol>
+</li>
+<li><ol>
+<li><ol>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.nlark.com/yuque/0/2022/png/25579703/1645531502561-3f566471-ae8a-48b5-92a7-62e57b32b4a7.png"
+                      alt="img"
+                ></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="认证成功"><a href="#认证成功" class="headerlink" title="认证成功"></a>认证成功</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645531589058-ff7d610e-bd0f-4084-a510-608852cfe794-20220418210517167.png"
+                      alt="img"
+                ></p>
+<p><strong>作用：</strong></p>
+<ul>
+<li><p>查询并封装当前用户所分配的 角色列表、资源列表</p>
+</li>
+<li><p>基于查询到的用户信息构建JWT令牌并返回给前端</p>
+</li>
+<li><p>前端可以通过 <strong>JWT令牌</strong> 获取到当前用户的基本信息（企业号）、角色信息、资源信息</p>
+</li>
+</ul>
+<p><strong>流程:</strong> </p>
+<ol>
+<li>指定应答的状态 ,认证成功或者认证失败</li>
+<li>认证成功,获得认证用户</li>
+<li>构建userVo返回对象</li>
+<li>处理角色构建,根据用户id查询角色列表,将角色标识存储到Set集合中</li>
+<li>处理资源构建: 根据用户id查询权限(资源列表) , 将<em><strong>资源路径</strong></em>存储到Set集合中.</li>
+<li>给用户指定角色 , 资源</li>
+<li>构建JWT令牌,将令牌设置到返回给前端的vo对象中</li>
+<li>返回最终结果</li>
+</ol>
+<h2 id="认证失败"><a href="#认证失败" class="headerlink" title="认证失败"></a>认证失败</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645531614859-db5f5274-fb53-4629-a692-b36e4b079315-20220418210517251.png"
+                      alt="img"
+                ></p>
+<p>认证失败：只需要返回错误信息即可</p>
+<p>结果：统一返回失败信息</p>
+<h1 id="5-统一权限-鉴权"><a href="#5-统一权限-鉴权" class="headerlink" title="5. 统一权限-鉴权"></a>5. 统一权限-鉴权</h1><p><strong>鉴权:</strong> 即访问控制, 控制谁能访问哪些资源 , 已经进行身份认证后需要分配权限方可访问系统的资源,对于某些资源没有权限是无法访问的,如图: </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645605292989-d10f1d56-ec09-4292-bd56-563b6235363e.png"
+                      alt="img"
+                ></p>
+<ul>
+<li>用户访问系统的资源</li>
+<li>进行身份认证,判断是否认证通过</li>
+<li>如果未通过,那么不与访问 </li>
+<li>通过则 进行权限控制, 给当前用户根据权限分配资源</li>
+<li>判断用户当前访问的资源是否拥有访问权限</li>
+<li>如果没有访问权限,那么拒绝访问</li>
+<li>如果用户拥有该资源的访问权限,那么允许访问</li>
+</ul>
+<p>RBAC基于资源的访问控制是以资源为中心进行访问控制 , 企业中常用的权限管理方法 </p>
+<p>实现思路: </p>
+<p>将系统操作的每个url都配置在资源表中,将资源对应角色,将角色分配给用户,用户访问系统功能通过Filter进行过滤</p>
+<p>过滤器获取到用户访问的url ,只要访问的url是用户分配角色中的url则放行,继续访问</p>
+<p>具体流程: </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645605636864-ae552547-adf2-499e-8245-4d1f2e078eb2.png"
+                      alt="img"
+                ></p>
+<p><strong>实现流程:</strong> </p>
+<ol>
+<li>用户对系统资源发起访问请求</li>
+<li>网关进行拦截url</li>
+<li>判断拦截到的url在配置文件中是否配置(是否为匿名资源)</li>
+<li>如果是匿名资源,那么直接放行</li>
+<li>如果不是匿名资源,那么对用户进行身份认证拦截</li>
+<li>判断用户是否进行身份认证(是否登录)</li>
+<li>如果用户未登录,那么拒绝访问</li>
+<li>用户身份认证完成,过滤器对url进行拦截</li>
+<li>判断该资源是否是公共资源,如果是直接放行,允许访问</li>
+<li>如果不是公共资源,那么判断用户是否拥有访问该资源的权限</li>
+<li>如果没有权限,那么直接拒绝访问</li>
+<li>否则,放行,允许访问</li>
+</ol>
+<p>鉴权完整流程图: </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645606120179-7ea05eec-acc6-4054-a307-12290e4aa3bd.png"
+                      alt="img"
+                ></p>
+<p>详细流程: </p>
+<ol>
+<li>用户对系统资源发起访问请求</li>
+<li>网关进行拦截url</li>
+<li>判断拦截到的url在配置文件中是否配置(是否为匿名资源)</li>
+<li>如果是匿名资源,那么直接放行</li>
+<li>如果不是匿名资源,那么对用户进行身份认证拦截</li>
+<li>判断用户是否进行身份认证(是否登录)</li>
+<li>如果用户未登录,那么拒绝访问</li>
+<li>用户身份认证完成,过滤器对url进行拦截</li>
+<li>对jwt令牌进行校验,如果令牌不通过,将友好的提示返回给前端</li>
+<li>如果jwt令牌校验通过 , 那么对该用户的权限进行校验,拿到用户的权限列表</li>
+<li>如果没有权限,那么拒绝访问,否则放行</li>
+</ol>
+<h1 id="6-统一权限-类和每个类做的事"><a href="#6-统一权限-类和每个类做的事" class="headerlink" title="6. 统一权限 , 类和每个类做的事"></a>6. 统一权限 , 类和每个类做的事</h1><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645606512755-2f313c4e-3b25-4d0b-ac34-8b7d52ecfbe5.png"
+                      alt="img"
+                ></p>
+<ol>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645606588925-d7fb76f8-04b5-442d-ab7b-0e6ea6ab93a5.java" >📎ReactiveSecurityConfig.java<i class="fas fa-external-link-alt"></i></a>: </p>
+</li>
+<li><ol>
+<li>认证和鉴权的核心配置: 基本配置 , 认证配置 , 鉴权配置, 退出登录 , 定义表单的转换器</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645606677971-6146a47b-4e2b-47c5-837b-7c946afb0481.java" >📎ReactiveServerAuthenticationConverter.java<i class="fas fa-external-link-alt"></i></a>: </p>
+</li>
+<li><ol>
+<li>自定义表单转换器 , 作用: 转换前端参数 , 获取 用户名&#x2F;手机号 , 密码&#x2F;验证码 , 登录类型 , 站点类型</li>
+<li>封装UsernamePasswordAuthenticationToken 实现了Authtication接口</li>
+<li>根据前端传递的具体的[登陆类型] 选择具体的表单转换器 , 基于Spring IOC容器实现</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645606953894-f00347a9-75ca-430f-9046-9eccfe347ec0.java" >📎LoginConverter.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>定义转换器方法实现接口</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645606979055-da4e3cd9-3042-47e2-8351-8d7b85a9b281.java" >📎MobilLoginConverter.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>手机验证码登录表单转换器</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607013905-6fea777b-f552-4b11-8ca9-b4c0207f8513.java" >📎UsernameLoginConverter.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>用户名和密码的表单转换器</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607793518-754335e8-709c-433b-acca-bbc1e35e8eb5.java" >📎JwtReactiveAuthenticationManager.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>认证管理器 , 获取参数 , 根据条件到数据库中查询 , 用户信息 - UserDetailService</li>
+<li>根据登录类型校验密码&#x2F;验证码 是否合法, 封装到 UsernamePasswordAuthenticationToken 中</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607164188-9c8ce66e-ac30-4c1b-ab81-d85972b10381.java" >📎ReactiveUserDetailsServiceImpl.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>根据不同的登录类型 , 查询用户信息 , 并封装到 UserAuth 中 , 继承User 实现了 UserDetail(用户名 , 密码 , 权限列表)</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607389816-fcacaad5-d5a3-405e-9fa2-9e5be6bfe536.java" >📎JsonServerAuthenticationSuccessHandler.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>认证成功处理器 , 获取用户信息 , 根据用户id查询角色列表Set,根据用户id查询权限列表生成JWT令牌,统一返回给前端</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607488137-75cc0629-f011-4025-b71a-8af02be2dee3.java" >📎JsonServerAuthenticationFailureHandler.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>认证失败的处理器 , 给前端提供友好的提示JSON</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607802580-1567893f-15c6-49f9-9636-7ea2bbe53baf.java" >📎JwtReactiveAuthorizationManager.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>鉴权管理器,</li>
+</ol>
+</li>
+<li><ol>
+<li><ol>
+<li>获取前端JWT令牌</li>
+<li>校验解析令牌,得到权限列表</li>
+<li>获取请求方式和请求路径</li>
+<li>权限匹配</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607897509-3e3a2a33-5fdc-42bc-bafe-9de2b096397f.java" >📎JsonServerAccessDeniedHandler.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>鉴权失败处理器,给前端提供友好的提示</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607932338-74471ad6-c716-4395-a9ab-75970954eb96.java" >📎JsonServerAuthenticationEntryPoint.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>用户未登录访问受保护资源 ,给前端提示 [先登录]</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645607982410-28a26fb9-1c8e-41ca-b56a-be4e323c07c1.java" >📎JsonServerLogoutSuccessHandler.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>登出处理器</li>
+</ol>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/java/25579703/1645608013072-40af8c45-7688-4819-aac8-f207d573067c.java" >📎SecurityProperties.java<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><ol>
+<li>读取配置文件属性配置类: 登录地址 , 匿名资源列表(list) , 跨域配置地址列表(list)</li>
+</ol>
+</li>
+</ol>
+<h1 id="7-统一权限-系统配置集成及使用"><a href="#7-统一权限-系统配置集成及使用" class="headerlink" title="7. 统一权限-系统配置集成及使用"></a>7. 统一权限-系统配置集成及使用</h1><p>具体实现步骤: </p>
+<ol>
+<li>创建用户角色相关的五张表</li>
+<li>在网关引入model-security-client的依赖</li>
+<li>在网关配置文件中添加相关配置（匿名资源、jwt令牌、redis等）</li>
+<li>修改对应的 <strong>ReactiveSecurityConfig</strong> 核心配置类</li>
+</ol>
+<p>核心配置类<strong>ReactiveSecurityConfig</strong> 的UML图: </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645608292591-ea215a16-45cc-4189-aaca-100748e93b2c.png"
+                      alt="img"
+                ></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/18/%E8%A7%84%E8%8C%83%E5%8F%82%E6%95%B0%E5%B0%81%E8%A3%85-Swagger%E6%B3%A8%E8%A7%A3-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">规范参数封装 Swagger注解 异常处理</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90%E6%94%AF%E4%BB%98%E6%96%B9%E6%A1%88/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">项目集成支付方案</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">TaoHongqiang</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BB%9F%E4%B8%80%E6%9D%83%E9%99%90-%E6%A6%82%E8%BF%B0"><span class="nav-text">1. 统一权限-概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-text">2. 数据库表结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%9F%BA%E7%A1%80%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86"><span class="nav-text">3. 基础信息管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%B5%84%E6%BA%90%E4%BF%A1%E6%81%AF"><span class="nav-text">(1) 资源信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%A7%92%E8%89%B2%E4%BF%A1%E6%81%AF"><span class="nav-text">(2) 角色信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-text">(3) 用户信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%BB%9F%E4%B8%80%E6%9D%83%E9%99%90-%E8%AE%A4%E8%AF%81"><span class="nav-text">4. 统一权限-认证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81%E6%88%90%E5%8A%9F"><span class="nav-text">认证成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5"><span class="nav-text">认证失败</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E7%BB%9F%E4%B8%80%E6%9D%83%E9%99%90-%E9%89%B4%E6%9D%83"><span class="nav-text">5. 统一权限-鉴权</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%BB%9F%E4%B8%80%E6%9D%83%E9%99%90-%E7%B1%BB%E5%92%8C%E6%AF%8F%E4%B8%AA%E7%B1%BB%E5%81%9A%E7%9A%84%E4%BA%8B"><span class="nav-text">6. 统一权限 , 类和每个类做的事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E7%BB%9F%E4%B8%80%E6%9D%83%E9%99%90-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="nav-text">7. 统一权限-系统配置集成及使用</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

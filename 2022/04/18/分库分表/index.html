@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="TaoHongqiang">
+    
+    <title>
+        
+            分库分表 |
+        
+        敢&#39;笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"你努力的样子藏着你父母幸福的晚年"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                敢&#39;笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">分库分表</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">TaoHongqiang</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 13:36:06</span>
+        <span class="mobile">2022-04-18 13:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、ShardingSphere"><a href="#一、ShardingSphere" class="headerlink" title="一、ShardingSphere"></a>一、ShardingSphere</h2><h3 id="1、ShardingSphere简介"><a href="#1、ShardingSphere简介" class="headerlink" title="1、ShardingSphere简介"></a>1、ShardingSphere简介</h3><p>Apache ShardingSphere 是一套开源的<strong>分布式数据库</strong>解决方案组成的生态圈。</p>
+<p>组成部分： <strong>JDBC</strong>、<strong>Proxy</strong> 和 <strong>Sidecar（规划中）</strong>这 3 款既能够独立部署，又支持混合部署配合使用的产品组成。 </p>
+<p>功能特性：它们均提供标准化的数据<strong>水平扩展</strong>、<strong>分布式事务</strong>和<strong>分布式治理</strong>等功能，可适用于如 Java 同构、异构语言、云原生等各种多样化的应用场景。</p>
+<p>官方网站：<a class="link"   target="_blank" rel="noopener" href="https://shardingsphere.apache.org/index_zh.html" >https://shardingsphere.apache.org/index_zh.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>文档地址：<a class="link"   target="_blank" rel="noopener" href="https://shardingsphere.apache.org/document/legacy/4.x/document/cn/overview" >https://shardingsphere.apache.org/document/legacy/4.x/document/cn/overview<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><p>可以解决的问题</p>
+</li>
+<li><ul>
+<li>磁盘io过高, 单库情况下无法承载过多的访问</li>
+<li>所有数据多放在同一张表中,mtsql单表可以存储2的32次方,单查询的时候效率比较低,单表行数超过500完条或者单表容量超过2GB, 才推荐使用分库分表</li>
+<li>业务便捷不清晰,专库使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、Sharding-JDBC简介"><a href="#2、Sharding-JDBC简介" class="headerlink" title="2、Sharding-JDBC简介"></a>2、Sharding-JDBC简介</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220412211819027.png"
+                      alt="image-20220412211819027"
+                ></p>
+<ul>
+<li>磁盘IO的开销问题，单库情况下无法承载过多的访问</li>
+<li>所有的用户数据都存放在同一个表中，mysql单表可以存储 2^32条，但查询的时候效率比较低，单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表</li>
+<li>业务的边界不清晰，专库专用</li>
+</ul>
+<p>虽然我们对应用系统做了大量的微服务处理，提升了系统在应用体系上的吞吐量，但是随着业务的越来越多，我们的数据库势必有不堪重负的一天，那么我们是怎么处理数据层的问题呢？这里就需要采用分库分表的策略来处理：</p>
+<p>Sharding-jdbc是ShardingSphere的其中一个模块，定位为&#x3D;&#x3D;轻量级Java框架&#x3D;&#x3D;，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，<strong>可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架</strong>。</p>
+<ul>
+<li>适用于任何基于Java的ORM框架，如：JPA, Hibernate, Mybatis, Spring JDBC Template或直接使用JDBC。</li>
+<li>基于任何第三方的数据库连接池，如：DBCP, C3P0, BoneCP, Druid, HikariCP等。</li>
+<li>支持任意实现JDBC规范的数据库。目前支持MySQL，Oracle，SQLServer和PostgreSQL。</li>
+</ul>
+<p>Sharding-JDBC的核心功能为<strong>数据分片</strong>和<strong>读写分离</strong>，通过Sharding-JDBC，应用可以<strong>透明</strong>的使用jdbc访问已经分库分表、读写分离的多个数据源，而不用关心数据源的数量以及数据如何分布。 </p>
+<h2 id="二、分库分表方式"><a href="#二、分库分表方式" class="headerlink" title="二、分库分表方式"></a>二、分库分表方式</h2><p>分库分表包括分库和分表两个部分，在生产中通常包括：垂直分库、水平分库、垂直分表、水平分表四种方式。</p>
+<h3 id="1、垂直分表"><a href="#1、垂直分表" class="headerlink" title="1、垂直分表"></a>1、垂直分表</h3><h4 id="1-1、名词解释：将一个表按照字段分成多表，每个表存储其中一部分字段"><a href="#1-1、名词解释：将一个表按照字段分成多表，每个表存储其中一部分字段" class="headerlink" title="1.1、名词解释：将一个表按照字段分成多表，每个表存储其中一部分字段"></a>1.1、<strong>名词解释：将一个表按照字段分成多表，每个表存储其中一部分字段</strong></h4><p>​    a、将一个表按字段垂直拆分, 每一个表存储其中一部分字段</p>
+<p>​    b、它带来的提升 : 可以在查询的时候不用查询多余的字段</p>
+<p>​    c、也可以解决查看同一个表的不同字段是,可以避免IO争抢 ,比如商品详情与价格    </p>
+<p>​    d、但是无法解决单一数据库的储存瓶颈</p>
+<h4 id="1-2、拆分原则"><a href="#1-2、拆分原则" class="headerlink" title="1.2、拆分原则:"></a>1.2、拆分原则:</h4><ul>
+<li><p>a、把不常用的字段单独放在一张表</p>
+</li>
+<li><p>b、吧数据量较多的字段放在一张表</p>
+</li>
+<li><p>c、把经常组合查询的放在一张表</p>
+</li>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h3 id="2、垂直分库"><a href="#2、垂直分库" class="headerlink" title="2、垂直分库"></a>2、垂直分库</h3><p><strong>名词解释：垂直分库是指按照业务将表进行分类，分布到不同的数据库上面，每个库可以放在不同的服务器上，它的核心理念是专库专用。</strong></p>
+<ul>
+<li><p>a、按业务将表垂直拆分 ,分布到不同的数据库上, 每个数据库可以部署到不同的服务器上 ,他的核心理念是 : 专库专用 ,多个服务器分摊压力</p>
+</li>
+<li><p>b、带来的提升 </p>
+</li>
+<li><ul>
+<li><p>1)、解决业务层面的耦合,业务清晰</p>
+</li>
+<li><p>2)、能对不同业务的数据进行分级管理,维护 监控和扩展</p>
+</li>
+<li><p>3)、高并发情况下 ,可以一定程度的提升IO,数据库连接数,降低单机硬件资源的瓶颈</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、水平分库"><a href="#3、水平分库" class="headerlink" title="3、水平分库"></a>3、水平分库</h3><p><strong>名词解释：是把同一个表的数据按一定规则拆到不同的数据库中，每个库可以放在不同的服务器上。</strong></p>
+<ul>
+<li><p>1、将表水平拆分后, 分被放到不同的数据库中,每个库放在不同服务器上</p>
+</li>
+<li><p>2、是对表的水平拆分 ,不改变表的结构</p>
+</li>
+<li><p>3、解决单库单表高并发性性能瓶颈</p>
+</li>
+<li><p>4、提高系统的稳定性和可用性</p>
+</li>
+</ul>
+<h3 id="4、水平分表"><a href="#4、水平分表" class="headerlink" title="4、水平分表"></a>4、水平分表</h3><p><strong>水平分表是在同一个数据库内，把同一个表的数据按一定规则拆到多个表中。</strong></p>
+<ul>
+<li><p>1、可以单一表数据过大的问题,提高检索效率</p>
+</li>
+<li><p>2、避免IO争抢并减少锁表的几率</p>
+</li>
+</ul>
+<p><font color="red">注意：水平分库和水平分表的字段不能使用同一个</font> </p>
+<h3 id="5、分库分表带来的问题"><a href="#5、分库分表带来的问题" class="headerlink" title="5、分库分表带来的问题"></a>5、分库分表带来的问题</h3><p>分库分表能有效的缓解了单机和单库带来的性能瓶颈和压力，突破网络IO、硬件资源、连接数的瓶颈，同时也带来了一些问题。 </p>
+<ul>
+<li>事务一致性问题</li>
+<li>跨节点关联查询</li>
+<li>跨节点分页、排序函数</li>
+<li>主键避重</li>
+<li>公共表（小数据量的表且经常备用，可能存在联查的情况）</li>
+</ul>
+<h3 id="6、拆分后名词概念"><a href="#6、拆分后名词概念" class="headerlink" title="6、拆分后名词概念"></a>6、拆分后名词概念</h3><h4 id="1、逻辑表"><a href="#1、逻辑表" class="headerlink" title="1、逻辑表"></a>1、逻辑表</h4><p>进行水平拆分的时候同一类型（逻辑、数据结构相同）的表的总称。例：用户数据根据主键尾数拆分为2张表，分别是tab_user_0到tab_user_1，他们的逻辑表名为tab_user</p>
+<h4 id="2、真实表（ActualTable）："><a href="#2、真实表（ActualTable）：" class="headerlink" title="2、真实表（ActualTable）："></a>2、真实表（ActualTable）：</h4><p>在分片的数据库中真实存在的物理表。即上个示例中的tab_user_0到tab_user_1。</p>
+<h4 id="3、数据节点（DataNode）："><a href="#3、数据节点（DataNode）：" class="headerlink" title="3、数据节点（DataNode）："></a>3、数据节点（DataNode）：</h4><p>数据分片的最小单元。由数据源名称和数据表组成，例：spring-boot_0.tab_user_0，spring-boot_0.tab_user_1，spring-boot_1.tab_user_0，spring-boot_1.tab_user_1。</p>
+<h4 id="4、动态表（DynamicTable）："><a href="#4、动态表（DynamicTable）：" class="headerlink" title="4、动态表（DynamicTable）："></a>4、动态表（DynamicTable）：</h4><p>逻辑表和物理表不一定需要在配置规则中静态配置。如，按照日期分片的场景，物理表的名称随着时间的推移会产生变化。</p>
+<h4 id="5、广播表（公共表）："><a href="#5、广播表（公共表）：" class="headerlink" title="5、广播表（公共表）："></a>5、广播表（公共表）：</h4><p>指所有的分片数据源中都存在的表，表结构和表中的数据在<strong>每个数据库中均完全一致</strong>。适用于数据量不大且需要与海量数据的表进行关联查询的场景，例如：字典表。</p>
+<h4 id="6、绑定表（BindingTable）："><a href="#6、绑定表（BindingTable）：" class="headerlink" title="6、绑定表（BindingTable）："></a>6、绑定表（BindingTable）：</h4><p>指E。例如：t_order表和t_order_item表，均按照order_no分片，则此两张表互为绑定表关系。绑定表之间的多表关联查询不会出现笛卡尔积关联，关联查询效率将大大提升。</p>
+<h3 id="7、Sharding-JDBC执行原理"><a href="#7、Sharding-JDBC执行原理" class="headerlink" title="7、Sharding-JDBC执行原理"></a>7、Sharding-JDBC执行原理</h3><ul>
+<li><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220412213240205.png"
+                      alt="image-20220412213240205"
+                ></p>
+</li>
+<li><ul>
+<li><ul>
+<li>sql解析—&gt;执行器优化–sql路由–.&gt;sql改写—&gt;slq执行—&gt;结果归并</li>
+<li>sql解析：通过解析sql语句提取分片键列与值进行分片，例如比较符 &#x3D;、in 、between and，及查询的表等。</li>
+<li>执行器优化：合并和优化分片条件</li>
+<li>sql路由：找到sql需要去哪个库、哪个表执行语句，上例sql根据采用的策略可以得到将在ds0库，t_user_0表执行语句。</li>
+<li>sql改写：根据解析结果，及采用的分片逻辑改写sql，SQL改写分为正确性改写和优化改写。</li>
+<li>sql执行：通过多线程执行器异步执行。</li>
+<li>结果归并：将多个执行结果集归并以便于通过统一的JDBC接口输出。结果归并包括流式归并、内存归并和使用装饰者模式的追加归并这几种方式。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8、小结"><a href="#8、小结" class="headerlink" title="8、小结"></a>8、小结</h3><p>分库分表方式：垂直分表、垂直分库、水平分库和水平分表</p>
+<p><strong>垂直分表：</strong>可以把一个宽表的字段按访问频次、是否是大字段的原则拆分为多个表，这样既能使业务清晰，还能提升部分性能。拆分后，尽量从业务角度避免联查，否则性能方面将得不偿失。 </p>
+<p><strong>垂直分库：</strong>可以把多个表按业务耦合松紧归类，分别存放在不同的库，这些库可以分布在不同服务器，从而使访问压力被多服务器负载，大大提升性能，同时能提高整体架构的业务清晰度，不同的业务库可根据自身情况定制优化方案。但是它需要解决跨库带来的所有复杂问题。 </p>
+<p><strong>水平分库：</strong>可以把一个表的数据(按数据行)分到多个不同的库，每个库只有这个表的部分数据，这些库可以分布在不同服务器，从而使访问压力被多服务器负载，大大提升性能。它不仅需要解决跨库带来的所有复杂问题，还要解决数据路由的问题(数据路由问题后边介绍)。 </p>
+<p><strong>水平分表：</strong>可以把一个表的数据(按数据行)分到多个同一个数据库的多张表中，每个表只有这个表的部分数据，这样做能小幅提升性能，它仅仅作为水平分库的一个补充优化。</p>
+<h3 id="最佳实践："><a href="#最佳实践：" class="headerlink" title="最佳实践："></a><strong>最佳实践：</strong></h3><p>一般来说，在<strong>系统设计阶段</strong>就应该根据业务耦合松紧来确定<strong>垂直分库，垂直分表</strong>方案，在数据量及访问压力不是特别大的情况，首先<strong>考虑缓存、读写分离、索引技术</strong>等方案。若数据量极大，且持续增长，再考虑<strong>水平分库水平分表</strong>方案。 </p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/18/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1-OSS%E5%BF%AB%E5%85%A5-Spring%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%B7%A5%E5%85%B7MultipartFile/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">分布式事务 OSS快入 Spring上传文件工具MultipartFile</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7-JWT-%E7%BD%91%E5%85%B3%E6%A3%80%E6%9F%A5token/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">加密工具 JWT 网关检查token</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">TaoHongqiang</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81ShardingSphere"><span class="nav-text">一、ShardingSphere</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81ShardingSphere%E7%AE%80%E4%BB%8B"><span class="nav-text">1、ShardingSphere简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Sharding-JDBC%E7%AE%80%E4%BB%8B"><span class="nav-text">2、Sharding-JDBC简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">二、分库分表方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9E%82%E7%9B%B4%E5%88%86%E8%A1%A8"><span class="nav-text">1、垂直分表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%E3%80%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A%EF%BC%9A%E5%B0%86%E4%B8%80%E4%B8%AA%E8%A1%A8%E6%8C%89%E7%85%A7%E5%AD%97%E6%AE%B5%E5%88%86%E6%88%90%E5%A4%9A%E8%A1%A8%EF%BC%8C%E6%AF%8F%E4%B8%AA%E8%A1%A8%E5%AD%98%E5%82%A8%E5%85%B6%E4%B8%AD%E4%B8%80%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5"><span class="nav-text">1.1、名词解释：将一个表按照字段分成多表，每个表存储其中一部分字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E3%80%81%E6%8B%86%E5%88%86%E5%8E%9F%E5%88%99"><span class="nav-text">1.2、拆分原则:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%9E%82%E7%9B%B4%E5%88%86%E5%BA%93"><span class="nav-text">2、垂直分库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%B0%B4%E5%B9%B3%E5%88%86%E5%BA%93"><span class="nav-text">3、水平分库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%B0%B4%E5%B9%B3%E5%88%86%E8%A1%A8"><span class="nav-text">4、水平分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">5、分库分表带来的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%8B%86%E5%88%86%E5%90%8E%E5%90%8D%E8%AF%8D%E6%A6%82%E5%BF%B5"><span class="nav-text">6、拆分后名词概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E9%80%BB%E8%BE%91%E8%A1%A8"><span class="nav-text">1、逻辑表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E7%9C%9F%E5%AE%9E%E8%A1%A8%EF%BC%88ActualTable%EF%BC%89%EF%BC%9A"><span class="nav-text">2、真实表（ActualTable）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E8%8A%82%E7%82%B9%EF%BC%88DataNode%EF%BC%89%EF%BC%9A"><span class="nav-text">3、数据节点（DataNode）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%8A%A8%E6%80%81%E8%A1%A8%EF%BC%88DynamicTable%EF%BC%89%EF%BC%9A"><span class="nav-text">4、动态表（DynamicTable）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E5%B9%BF%E6%92%AD%E8%A1%A8%EF%BC%88%E5%85%AC%E5%85%B1%E8%A1%A8%EF%BC%89%EF%BC%9A"><span class="nav-text">5、广播表（公共表）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81%E7%BB%91%E5%AE%9A%E8%A1%A8%EF%BC%88BindingTable%EF%BC%89%EF%BC%9A"><span class="nav-text">6、绑定表（BindingTable）：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81Sharding-JDBC%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-text">7、Sharding-JDBC执行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%B0%8F%E7%BB%93"><span class="nav-text">8、小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%EF%BC%9A"><span class="nav-text">最佳实践：</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

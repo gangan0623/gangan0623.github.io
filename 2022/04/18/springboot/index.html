@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="TaoHongqiang">
+    
+    <title>
+        
+            Spring入门 |
+        
+        敢&#39;笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"你努力的样子藏着你父母幸福的晚年"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                敢&#39;笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Spring入门</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">TaoHongqiang</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 13:36:06</span>
+        <span class="mobile">2022-04-18 13:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>16 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-SpringBoot简介"><a href="#1-SpringBoot简介" class="headerlink" title="1. SpringBoot简介"></a>1. SpringBoot简介</h1><h2 id="1-1入门案例"><a href="#1-1入门案例" class="headerlink" title="1.1入门案例"></a>1.1入门案例</h2><p>​    SpringBoot是由Pivotal团队提供的全新框架，其设计目的是用来简化Spring应用的初始搭建以及开发过程.</p>
+<p>我们先来回顾一下原生SpringMVC的开发过程: </p>
+<blockquote>
+<ol>
+<li>导入依赖</li>
+</ol>
+</blockquote>
+<p>![1638628925839](&#x2F;Users&#x2F;taohongqiang&#x2F;Documents&#x2F;ClassContent&#x2F;05 框架相关 以及部分Linux&#x2F;day08-springboot&#x2F;笔记&#x2F;assets&#x2F;1638628925839.png) </p>
+<blockquote>
+<ol start="2">
+<li>配置</li>
+</ol>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638628956288.png"
+                      alt="1638628956288"
+                > </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638628974618.png"
+                      alt="1638628974618"
+                > </p>
+<blockquote>
+<ol start="3">
+<li>编写controller</li>
+</ol>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638629003961.png"
+                      alt="1638629003961"
+                > </p>
+<p><strong>现在, 我们现在来看一下springboot开发同样的web应用流程</strong></p>
+<blockquote>
+<p>注意: 要联网!!!</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638629212368.png"
+                      alt="1638629212368"
+                > </p>
+<p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638629561075.png"
+                      alt="1638629561075"
+                > </p>
+<p><strong>③ : 开发controller</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;id==&gt;&quot;</span> +id);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello, springboot!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到现在, 项目结构为</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638629917750.png"
+                      alt="1638629917750"
+                > </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638629943501.png"
+                      alt="1638629943501"
+                > </p>
+<p><strong>⑤: 测试</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638630022776.png"
+                      alt="1638630022776"
+                > </p>
+<p>现在,我们来看一下,两种程序的开发流程对比,springboot明显方便许多!</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638630113552.png"
+                      alt="1638630113552"
+                > </p>
+<h2 id="1-2-入门案例分析"><a href="#1-2-入门案例分析" class="headerlink" title="1.2 入门案例分析"></a>1.2 入门案例分析</h2><p>我们看一下springboot入门案例的大致原理分析: </p>
+<p><strong>① : 先查看入门案例的pom文件</strong></p>
+<blockquote>
+<p>以下部分是核心,去除了不必要的内容</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638630600043.png"
+                      alt="1638630600043"
+                > </p>
+<p><strong>②:  点击查看spring-boot-starter-parent工程</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638631076597.png"
+                      alt="1638631076597"
+                > </p>
+<p>​    整体来看，spring-boot-starter-parent父工程仅仅<strong>定义了工程相关的描述信息</strong>，至于依赖资源配置方面，没有做过多参与，不过我们发现spring-boot-starter-parent工程也有自己的父工程</p>
+<p><strong>③: 点击查看spring-boot-dependencies工程</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638631191173.png"
+                      alt="1638631191173"
+                > </p>
+<p>​    展开dependencyManagement发现,工程中声明了几乎所有开发中常用的依赖版本号并通过dependencyManagement进行版本控制</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638631394390.png"
+                      alt="1638631394390"
+                ></p>
+<p><strong>④: 点击pring-boot-starter工程</strong></p>
+<pre><code> 分析`spring-boot-starter-web`依赖发现：内部把关于web MVC开发所有的依赖都已经导入并且版本控制完成了,我们只需引入 `spring-boot-starter-web` 这个依赖就可以实现我们的 Web MVC的功能，是不是很强大！
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638631536127.png"
+                      alt="1638631536127"
+                > </p>
+<h2 id="1-3-SpringBoot概述"><a href="#1-3-SpringBoot概述" class="headerlink" title="1.3 SpringBoot概述"></a>1.3 SpringBoot概述</h2><p>官网参考：<a class="link"   target="_blank" rel="noopener" href="https://spring.io/projects/spring-boot" >https://spring.io/projects/spring-boot<i class="fas fa-external-link-alt"></i></a> </p>
+<p>​     <strong>SpringBoot让开发者可以非常简单的快速构建独立的、基于Spring应用的生产级应用程序.</strong></p>
+<p>​    <strong>它基于约定优于配置的思想，设计目的是用来简化Spring应用的初始搭建以及开发过程.</strong></p>
+<p>SpringBoot主要特点：</p>
+<ul>
+<li>Create stand-alone Spring applications</li>
+<li><ul>
+<li>创建独立Spring应用</li>
+</ul>
+</li>
+<li>Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)</li>
+<li><ul>
+<li>内嵌web服务器(Tomcat 和 Jetty)</li>
+</ul>
+</li>
+<li>Provide opinionated ‘starter’ dependencies to simplify your build configuration</li>
+<li><ul>
+<li>自动starter依赖，简化构建配置</li>
+</ul>
+</li>
+<li>Automatically configure Spring and 3rd party libraries whenever possible</li>
+<li><ul>
+<li>自动配置Spring以及第三方功能</li>
+</ul>
+</li>
+<li>Provide production-ready features such as metrics, health checks, and externalized configuration</li>
+<li><ul>
+<li>提供生产级别的监控、健康检查及外部化配置</li>
+</ul>
+</li>
+<li>Absolutely no code generation and no requirement for XML configuration</li>
+<li><ul>
+<li>无代码生成、无需编写XML</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 优点：</span><br><span class="line"><span class="code">		SpringBoot将常见的使用场景和配置都封装好,让开发者可以快速开发spring应用</span></span><br><span class="line"><span class="code">		(SpringBoot是简化Spring技术栈的快速开发脚手架)</span></span><br><span class="line"><span class="code">2. 缺点：</span></span><br><span class="line"><span class="code">		版本迭代快，需要时刻关注变化</span></span><br><span class="line"><span class="code">		封装太深，内部原理复杂，不容易精通</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-切换web服务器"><a href="#1-4-切换web服务器" class="headerlink" title="1.4 切换web服务器"></a>1.4 切换web服务器</h2><p>我们理解了springboot之后, 也可以不使用其默认配置的一些选项, 改用我们想要的选项.</p>
+<p>例如: 排除Tomcat，引入jetty服务器组件.</p>
+<blockquote>
+<p>Jetty比Tomcat更轻量级，可扩展性更强（相较于Tomcat），谷歌应用引擎（GAE）已经全面切换为Jetty</p>
+<p>当然大型的应用还是tomcat为主</p>
+</blockquote>
+<p>pom文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--排除tomcat依赖--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--引入jetty的依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jetty<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-springboot配置"><a href="#2-springboot配置" class="headerlink" title="2. springboot配置"></a>2. springboot配置</h1><h2 id="2-1-配置文件格式"><a href="#2-1-配置文件格式" class="headerlink" title="2.1 配置文件格式"></a>2.1 配置文件格式</h2><p>虽然springboot对常见配置项都进行了默认配置, 如果开发者要想要修改怎么办呢?</p>
+<blockquote>
+<p>比如: springboot环境中的tomcat,默认端口配置了8080 ,但是如果我们想要修改成80端口的话,应该如何实现?</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638632422170.png"
+                      alt="1638632422170"
+                > </p>
+<p><strong>springboot对此也提供了解决方案, 支持三种配置文件</strong></p>
+<blockquote>
+<p>最常用是yml</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638632627879.png"
+                      alt="1638632627879"
+                > </p>
+<p>注意: 需要编写在resources目录项下,且文件名为application开头</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638632899276.png"
+                      alt="1638632899276"
+                > </p>
+<p>SpringBoot配置文件加载优先级（了解）</p>
+<blockquote>
+<p>application.<strong>properties</strong>  <strong>&gt;</strong>  application.<strong>yml</strong>  <strong>&gt;</strong>  application.<strong>yaml</strong></p>
+</blockquote>
+<p>SpringBoot内置属性过多，且所有属性集中在一起修改，在使用时，可以通过提示键+关键字修改属性</p>
+<h2 id="2-2-yaml"><a href="#2-2-yaml" class="headerlink" title="2.2 yaml"></a>2.2 yaml</h2><h3 id="2-2-1-基本介绍"><a href="#2-2-1-基本介绍" class="headerlink" title="2.2.1 基本介绍"></a>2.2.1 基本介绍</h3><blockquote>
+<p>递归缩写 </p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638633055774.png"
+                      alt="1638633055774"
+                ></p>
+<h3 id="2-2-2-语法规则"><a href="#2-2-2-语法规则" class="headerlink" title="2.2.2 语法规则"></a>2.2.2 语法规则</h3><ul>
+<li>大小写敏感</li>
+<li>属性层级关系使用多行描述，每行结尾使用冒号结束</li>
+<li>使用缩进表示层级关系，同层级左侧对齐，只允许使用空格（不允许使用Tab键）</li>
+<li>属性值前面添加空格（属性名与属性值之间使用冒号+空格作为分隔）</li>
+<li># 表示注释</li>
+</ul>
+<p>核心规则：<strong>数据前面要加空格与冒号隔开</strong> </p>
+<p>示例:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">enterprise:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">itcast</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">16</span></span><br><span class="line">  <span class="attr">tel:</span> <span class="number">4006184000</span></span><br><span class="line">  <span class="attr">subject:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Java</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">前端</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">大数据</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-3-数据读取"><a href="#2-2-3-数据读取" class="headerlink" title="2.2.3 数据读取"></a>2.2.3 数据读取</h3><p><strong>方案一: 使用@Value读取单个数据，属性名引用方式：${一级属性名.二级属性名}</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638671960028.png"
+                      alt="1638671960028"
+                ></p>
+<blockquote>
+<p>注意: 数组不能直接获取</p>
+</blockquote>
+<p><strong>方案二: 自定义对象封装指定数据</strong></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638633562196.png"
+                      alt="1638633562196"
+                > </p>
+<p>如果使用此种方式,idea有警告, 可以忽略它, 不影响运行,也可以在pom文件添加依赖</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638633726484.png"
+                      alt="1638633726484"
+                > </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--解决SpringBoot自定义配置提示问题--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--插件运行时排除依赖--&gt;</span>  </span><br><span class="line">          <span class="tag">&lt;<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-3-多环境配置"><a href="#2-3-多环境配置" class="headerlink" title="2.3 多环境配置"></a>2.3 多环境配置</h2><p><font color="red">背景：</font> </p>
+<p>​    在软件应用部署的时候，我们往往遇到需要发布到不同环境的情况，而每个环境的数据库信息、服务器端口、密钥信息等可能会存在差异，这时开发人员需要频繁修改配置来切换不同的环境，维护性相当差！</p>
+<p>SpringBoot多环境配置方案可以解决上述出现的问题；    </p>
+<blockquote>
+<p>计算机</p>
+<ol>
+<li>企业级计算机(服务器)</li>
+<li>个人计算机</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>多环境</p>
+<ol>
+<li>开发(windows) : development</li>
+<li>测试(linux) : test</li>
+<li>生产(linux) : produce</li>
+</ol>
+</blockquote>
+<p><font color="red">实现：</font></p>
+<h4 id="2-3-1-多profile文件实现环境配置切换（推荐）"><a href="#2-3-1-多profile文件实现环境配置切换（推荐）" class="headerlink" title="2.3.1 多profile文件实现环境配置切换（推荐）"></a>2.3.1 多profile文件实现环境配置切换（推荐）</h4><p>profile配置方式：    </p>
+<p>​    多profile文件方式：提供多个配置文件，每个代表一种环境。</p>
+<p>​        application.yml(主配置)</p>
+<p>​        application-dev.properties&#x2F;yml 开发环境</p>
+<p>​        application-test.properties&#x2F;yml 测试环境</p>
+<p>​        application-pro.properties&#x2F;yml 生产环境</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638673200384.png"
+                      alt="1638673200384"
+                > </p>
+<p>好处：</p>
+<p>​    不同的环境使用不同的文件，这样修改时，仅仅修改对应配置文件的数据，无需修改其他环境的配置文件（解耦）</p>
+<h4 id="2-3-2-单个profile文件实现环境配置切换-了解"><a href="#2-3-2-单个profile文件实现环境配置切换-了解" class="headerlink" title="2.3.2 单个profile文件实现环境配置切换(了解)"></a>2.3.2 单个profile文件实现环境配置切换(了解)</h4><p>   在yml中使用  — 分隔不同配置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638673646431.png"
+                      alt="1638673646431"
+                > </p>
+<h3 id="2-3-3-命令行启动"><a href="#2-3-3-命令行启动" class="headerlink" title="2.3.3  命令行启动"></a>2.3.3  命令行启动</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 准备工作</span></span><br><span class="line"><span class="bullet">1.</span> 打jar包 : 注意pom文件中要有以下插件</span><br><span class="line">   <span class="language-xml"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span></span><br><span class="line"><span class="code">       &lt;plugins&gt;</span></span><br><span class="line"><span class="code">           &lt;plugin&gt;</span></span><br><span class="line"><span class="code">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span></span><br><span class="line"><span class="code">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span></span><br><span class="line"><span class="code">               &lt;configuration&gt;</span></span><br><span class="line"><span class="code">                   &lt;excludes&gt;</span></span><br><span class="line"><span class="code">                       &lt;!--插件运行时排除依赖 : 自动提示--&gt;</span></span><br><span class="line"><span class="code">                       &lt;exclude&gt;</span></span><br><span class="line"><span class="code">                           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span></span><br><span class="line"><span class="code">                           &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span></span><br><span class="line"><span class="code">                       &lt;/exclude&gt;</span></span><br><span class="line"><span class="code">                   &lt;/excludes&gt;</span></span><br><span class="line"><span class="code">               &lt;/configuration&gt;</span></span><br><span class="line"><span class="code">           &lt;/plugin&gt;</span></span><br><span class="line"><span class="code">       &lt;/plugins&gt;</span></span><br><span class="line"><span class="code">   &lt;/build&gt;</span></span><br><span class="line"><span class="code">2. 到jar包的目录,启动dos窗口(cmd)</span></span><br><span class="line"><span class="code">3. 然后使用命令</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> java -jar XXX.jar</span><br><span class="line"><span class="code">		启动某个jar包,使用jar包内的配置(prod)</span></span><br><span class="line"><span class="code">2. java -jar XXX.jar --spring.profiles.active=dev    </span></span><br><span class="line"><span class="code">		启动并读取dev环境</span></span><br><span class="line"><span class="code">3. java -jar XXX.jar --server.port=9000 		</span></span><br><span class="line"><span class="code">    	启动时使用端口9000</span></span><br><span class="line"><span class="code">4. java –jar XXX.jar –-server.port=9000 –-spring.profiles.active=dev</span></span><br><span class="line"><span class="code">		启动时使用端口9000,其余配置读取dev环境</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="section"># 整体加载优先级： jar包外 &gt; jar包内</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-4-配置路径分类"><a href="#2-4-配置路径分类" class="headerlink" title="2.4 配置路径分类"></a>2.4 配置路径分类</h2><p><strong>SpringBoot中4级配置文件</strong></p>
+<p>1级： file ：config&#x2F;application.yml  <strong>【最高】</strong></p>
+<blockquote>
+<p>当前项目project下的&#x2F;config目录下</p>
+</blockquote>
+<p>2级： file ：application.yml</p>
+<blockquote>
+<p>当前项目project的根目录</p>
+</blockquote>
+<p>3级：classpath：config&#x2F;application.yml</p>
+<blockquote>
+<p>classpath的&#x2F;config目录</p>
+</blockquote>
+<p>4级：classpath：application.yml   ★★ <strong>【最低】</strong></p>
+<blockquote>
+<p>classpath的根目录</p>
+</blockquote>
+<p><strong>配置优先级：由高到底</strong></p>
+<blockquote>
+<p>file : 指的是当前project所在目录</p>
+<p>classpath : 指的是maven模块的resources目录</p>
+</blockquote>
+<h2 id="2-5-配置文件加载顺序"><a href="#2-5-配置文件加载顺序" class="headerlink" title="2.5 配置文件加载顺序"></a>2.5 配置文件加载顺序</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 按文件类型</span></span><br><span class="line">properties &gt; yml &gt; yaml </span><br><span class="line"><span class="section"># 按路径分类</span></span><br><span class="line">当前project/config &gt; 当前project &gt; classpath/config &gt; classpath</span><br><span class="line"><span class="section"># 按命令行设置</span></span><br><span class="line">jar包外的参数 &gt; jar包内的参数</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-整合第三方技术"><a href="#3-整合第三方技术" class="headerlink" title="3. 整合第三方技术"></a>3. 整合第三方技术</h1><h2 id="3-1-springboot整合Junit单元测试"><a href="#3-1-springboot整合Junit单元测试" class="headerlink" title="3.1 springboot整合Junit单元测试"></a>3.1 springboot整合Junit单元测试</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638635088366.png"
+                      alt="1638635088366"
+                > </p>
+<p>环境依赖:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码编写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	1. @SpringBootTest设置JUnit加载的SpringBoot启动类</span></span><br><span class="line"><span class="comment">	2. 如果测试类在SpringBoot启动类的包或子包中，可以省略启动类的设置，也就是省略classes的设定</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span>	</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="comment">//@SpringBootTest(classes = Springboot07JunitApplication.class)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot07JunitApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span>&#123;</span><br><span class="line">        bookService.save();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method01</span><span class="params">()</span>&#123;</span><br><span class="line">        System.err.println(<span class="string">&quot;method01&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> CaclUtil.add(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            junit断言机制: 专门测试结果是否符合预期</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">            测试失败: 结果不符合预期</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Assertions.assertEquals(<span class="number">2</span>,result);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@BeforeAll</span> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">bfc</span><span class="params">()</span>&#123;</span><br><span class="line">        System.err.println(<span class="string">&quot;测试方法执行之前运行一次,最早运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@BeforeEach</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bf</span><span class="params">()</span>&#123;</span><br><span class="line">        System.err.println(<span class="string">&quot;每个测试方法执行之前运行一次,二早运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@AfterEach</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">af</span><span class="params">()</span>&#123;</span><br><span class="line">        System.err.println(<span class="string">&quot;每个测试方法执行之后运行一次,三早运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterAll</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">afc</span><span class="params">()</span>&#123;</span><br><span class="line">        System.err.println(<span class="string">&quot;测试方法执行之后运行一次,四早运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-2-基于SpringBoot实现SSM整合"><a href="#3-2-基于SpringBoot实现SSM整合" class="headerlink" title="3.2 基于SpringBoot实现SSM整合"></a>3.2 基于SpringBoot实现SSM整合</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 思路</span></span><br><span class="line"><span class="bullet">1.</span> SpringBoot整合Spring (不需要)</span><br><span class="line"><span class="bullet">2.</span> SpringBoot整合SpringMVC(不需要)	</span><br><span class="line"><span class="bullet">3.</span> SpringBoot整合MyBatis(主要)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​    由于springboot跟和spring,springmvc出于同一团队,所以springboot里已经自动配置好spring和springmvc环境,这里唯一指的一提的是, springboot工程没有webapp目录,那么静态资源放哪里呢?</p>
+<p>​    另外, SpringBoot整合MyBatis也是另一个需要学习的知识点!</p>
+<h3 id="3-2-1-SpringBoot静态资源访问"><a href="#3-2-1-SpringBoot静态资源访问" class="headerlink" title="3.2.1 SpringBoot静态资源访问"></a>3.2.1 SpringBoot静态资源访问</h3><p>环境依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    Spring Boot从类路径中名为<code>/static</code>（<code>/public</code>或<code>/resources</code>或<code>/META-INF/resources</code>）的目录中提供静态内容。</p>
+<p>新建一个Maven项目，将<code>图片</code> 下的图片分别放在对应的目录下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638636103288.png"
+                      alt="1638636103288"
+                > </p>
+<blockquote>
+<p>注意：<code>/META-INF/resources</code>是两级文件夹</p>
+</blockquote>
+<p>浏览器访问：<a class="link"   target="_blank" rel="noopener" href="http://localhost:8080/4.jpg" >http://localhost:8080/4.jpg<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="3-2-2-SpringBoot整合MyBatis"><a href="#3-2-2-SpringBoot整合MyBatis" class="headerlink" title="3.2.2 SpringBoot整合MyBatis"></a>3.2.2 SpringBoot整合MyBatis</h3><h4 id="3-2-2-1-基本配置"><a href="#3-2-2-1-基本配置" class="headerlink" title="3.2.2.1 基本配置"></a>3.2.2.1 基本配置</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638636458145.png"
+                      alt="1638636458145"
+                > </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638636469803.png"
+                      alt="1638636469803"
+                > </p>
+<p><strong>③：设置数据源参数</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638636610074.png"
+                      alt="1638636610074"
+                > </p>
+<p><strong>④: 定义数据层接口与映射配置</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">    <span class="meta">@Select(&quot;select * from tbl_book where id = #&#123;id&#125;&quot;)</span></span><br><span class="line">    Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select(&quot;select * from tbl_book&quot;)</span></span><br><span class="line">    List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>⑤: 测试类中注入dao接口，测试功能</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MybatisApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> bookDao.getById(<span class="number">1</span>);</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-2-修改连接池"><a href="#3-2-2-2-修改连接池" class="headerlink" title="3.2.2.2 修改连接池"></a>3.2.2.2 修改连接池</h4><p>​    springboot整合的mybatis默认使用连接池HikariDataSource,我们可以切换为DruidDataSource.</p>
+<blockquote>
+<p>HikariDataSource : 快</p>
+<p>DruidDataSource : 功能比较多</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.24<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置数据源 : 新增druid连接池</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">  	<span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> </span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2-2-3-省略-Mapper注解"><a href="#3-2-2-3-省略-Mapper注解" class="headerlink" title="3.2.2.3 省略@Mapper注解"></a>3.2.2.3 省略@Mapper注解</h4><p>如果接口省略@Mapper注解，那么启动项目后出现异常错误；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@Mapper </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">	<span class="meta">@Select(&quot;select * from tbl_book where id = #&#123;id&#125;&quot;)</span></span><br><span class="line">    Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select(&quot;select * from tbl_book&quot;)</span></span><br><span class="line">    List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：在引导类上添加 <code>@MapperScan</code> 注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan(&quot;com.itheima.dao&quot;)</span><span class="comment">//推荐 批量加载mapper接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MybatisApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(MybatisApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-4-sql映射文件位置"><a href="#3-2-2-4-sql映射文件位置" class="headerlink" title="3.2.2.4  sql映射文件位置"></a>3.2.2.4  sql映射文件位置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.itheima.dao.BookDao&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getById&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;book&quot;</span>&gt;</span></span><br><span class="line">        select * from tbl_book where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="comment"># mapper 映射文件位置</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/**Dao.xml</span></span><br><span class="line">  <span class="comment"># pojo包扫描,取别名</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.itheima.pojo</span></span><br></pre></td></tr></table></figure>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/./assets/1638690473699.png"
+                      alt="1638690473699"
+                > </p>
+<h4 id="3-2-2-5-整合Mybatis的分页插件"><a href="#3-2-2-5-整合Mybatis的分页插件" class="headerlink" title="3.2.2.5 整合Mybatis的分页插件"></a>3.2.2.5 整合Mybatis的分页插件</h4><p>1、依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、核心配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pagehelper:</span></span><br><span class="line"><span class="comment"># mysql支持的方言</span></span><br><span class="line">  <span class="attr">helperDialect:</span> <span class="string">mysql</span></span><br><span class="line"><span class="comment"># sql合理化  </span></span><br><span class="line">  <span class="attr">reasonable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>测试</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MybatisApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> bookDao.getById(<span class="number">1</span>);</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetAll</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            <span class="doctag">TODO:</span> PageHelper (是mybatis的分页插件,简化mybatis的分页开发)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            设置监听器</span></span><br><span class="line"><span class="comment">            1. 监听器一旦设置,就会对下一次执行的sql进行增强</span></span><br><span class="line"><span class="comment">            2. 设置分页增强的参数</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        PageHelper.startPage(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//切入点</span></span><br><span class="line">        List&lt;Book&gt; all = bookDao.getAll();</span><br><span class="line">        PageInfo&lt;Book&gt; pageInfo = <span class="keyword">new</span> <span class="title class_">PageInfo</span>&lt;&gt;(all);</span><br><span class="line">        <span class="comment">//获取总记录数</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">total</span> <span class="operator">=</span> pageInfo.getTotal();</span><br><span class="line">        <span class="comment">//获取总页数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">pages</span> <span class="operator">=</span> pageInfo.getPages();</span><br><span class="line">        <span class="comment">//获取当前页</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">pageNum</span> <span class="operator">=</span> pageInfo.getPageNum();</span><br><span class="line">        <span class="comment">//获取当前页数据</span></span><br><span class="line">        List&lt;Book&gt; list = pageInfo.getList();</span><br><span class="line"></span><br><span class="line">        System.out.println(all);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-3-基于SpringBoot的SSM整合案例"><a href="#3-3-基于SpringBoot的SSM整合案例" class="headerlink" title="3.3 基于SpringBoot的SSM整合案例"></a>3.3 基于SpringBoot的SSM整合案例</h2><blockquote>
+<p>素材代码 day05-demo02-ssm-result</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> pom.xml</span><br><span class="line"><span class="code">		配置起步依赖(web场景,mybatis场景和mysql驱动)，手动导入必要的资源坐标(druid)</span></span><br><span class="line"><span class="code">2. application.yml</span></span><br><span class="line"><span class="code">		设置数据源、端口等</span></span><br><span class="line"><span class="code">3.	配置类</span></span><br><span class="line"><span class="code">		全部删除</span></span><br><span class="line"><span class="code">4.	dao</span></span><br><span class="line"><span class="code">		设置@Mapper或者启动类中@MapperScan</span></span><br><span class="line"><span class="code">5.	测试类</span></span><br><span class="line"><span class="code">6.	页面</span></span><br><span class="line"><span class="code">		放置在resources目录下的static目录中</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># springboot的工作</span></span><br><span class="line"><span class="bullet">1.</span> springboot是快速构建spring应用的脚手架</span><br><span class="line"><span class="bullet">2.</span>  springboot有场景启动器,其作用: 可以让开发者在导依赖的时候很省事(不需要关心有哪些jar包,以及什么版本号)</span><br><span class="line"><span class="code">	I. springboot封装了一些常用的场景(50个)</span></span><br><span class="line"><span class="code">		1). web场景</span></span><br><span class="line"><span class="code">		2). test场景</span></span><br><span class="line"><span class="code">	II. springboot也提供了开发场景的规范</span></span><br><span class="line"><span class="code">		1). mybatis参照规范自定义了自己的场景</span></span><br><span class="line"><span class="code">		2). druid,pageHelper等场景</span></span><br><span class="line"><span class="code">3. springboot有个理念: 约定大于配置, springboot帮开发者封装了常见的配置,让开发者省略很多默认的配置</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/18/redis%E9%AB%98%E7%BA%A7%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">redis高级</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1-OSS%E5%BF%AB%E5%85%A5-Spring%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%B7%A5%E5%85%B7MultipartFile/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">分布式事务 OSS快入 Spring上传文件工具MultipartFile</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">TaoHongqiang</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-SpringBoot%E7%AE%80%E4%BB%8B"><span class="nav-text">1. SpringBoot简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-text">1.1入门案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="nav-text">1.2 入门案例分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-SpringBoot%E6%A6%82%E8%BF%B0"><span class="nav-text">1.3 SpringBoot概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E5%88%87%E6%8D%A2web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">1.4 切换web服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-springboot%E9%85%8D%E7%BD%AE"><span class="nav-text">2. springboot配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="nav-text">2.1 配置文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-yaml"><span class="nav-text">2.2 yaml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-text">2.2.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">2.2.2 语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96"><span class="nav-text">2.2.3 数据读取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">2.3 多环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%E5%A4%9Aprofile%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%88%87%E6%8D%A2%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">2.3.1 多profile文件实现环境配置切换（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%E5%8D%95%E4%B8%AAprofile%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%88%87%E6%8D%A2-%E4%BA%86%E8%A7%A3"><span class="nav-text">2.3.2 单个profile文件实现环境配置切换(了解)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%90%AF%E5%8A%A8"><span class="nav-text">2.3.3  命令行启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%85%8D%E7%BD%AE%E8%B7%AF%E5%BE%84%E5%88%86%E7%B1%BB"><span class="nav-text">2.4 配置路径分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F"><span class="nav-text">2.5 配置文件加载顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B4%E5%90%88%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8A%80%E6%9C%AF"><span class="nav-text">3. 整合第三方技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-springboot%E6%95%B4%E5%90%88Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-text">3.1 springboot整合Junit单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%9F%BA%E4%BA%8ESpringBoot%E5%AE%9E%E7%8E%B0SSM%E6%95%B4%E5%90%88"><span class="nav-text">3.2 基于SpringBoot实现SSM整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-SpringBoot%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE"><span class="nav-text">3.2.1 SpringBoot静态资源访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-SpringBoot%E6%95%B4%E5%90%88MyBatis"><span class="nav-text">3.2.2 SpringBoot整合MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-1-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-text">3.2.2.1 基本配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-2-%E4%BF%AE%E6%94%B9%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-text">3.2.2.2 修改连接池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-3-%E7%9C%81%E7%95%A5-Mapper%E6%B3%A8%E8%A7%A3"><span class="nav-text">3.2.2.3 省略@Mapper注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-4-sql%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="nav-text">3.2.2.4  sql映射文件位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-5-%E6%95%B4%E5%90%88Mybatis%E7%9A%84%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6"><span class="nav-text">3.2.2.5 整合Mybatis的分页插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%9F%BA%E4%BA%8ESpringBoot%E7%9A%84SSM%E6%95%B4%E5%90%88%E6%A1%88%E4%BE%8B"><span class="nav-text">3.3 基于SpringBoot的SSM整合案例</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="TaoHongqiang">
+    
+    <title>
+        
+            项目集成支付方案 |
+        
+        敢&#39;笔记
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"你努力的样子藏着你父母幸福的晚年"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                敢&#39;笔记
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">项目集成支付方案</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">TaoHongqiang</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-18 13:36:06</span>
+        <span class="mobile">2022-04-18 13:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>6.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>23 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="总体支付流程"><a href="#总体支付流程" class="headerlink" title="总体支付流程"></a>总体支付流程</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/image-20220409194311001.png"
+                      alt="image-20220409194311001"
+                ></p>
+<h2 id="1、-PostConstruct"><a href="#1、-PostConstruct" class="headerlink" title="1、@PostConstruct"></a>1、@PostConstruct</h2><p>@PostConstruct注解好多人以为是Spring提供的。其实是Java自己的注解。</p>
+<p>Java中该注解的说明：@PostConstruct该注解被用来修饰一个非静态的void（）方法。被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。PostConstruct在构造函数之后执行，init（）方法之前执行。通常我们会是在Spring框架中使用到@PostConstruct注解 该注解的方法在整个Bean初始化中的执行顺序：</p>
+<p>​    <strong>Constructor(构造方法) -&gt; @Autowired(依赖注入) -&gt; @PostConstruct(注释的方法)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.studySpringBoot.util;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> com.example.studySpringBoot.service.MyMethorClassService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> javax.annotation.PostConstruct;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 应用：在静态方法中调用依赖注入的Bean中的方法。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyUtils</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">MyUtils</span>          <span class="variable">staticInstance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUtils</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MyMethorClassService    myService;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span>&#123;</span><br><span class="line">        staticInstance.myService = myService;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title function_">invokeBean</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> staticInstance.myService.add(<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、交易平台-商户支付隔离"><a href="#2、交易平台-商户支付隔离" class="headerlink" title="2、交易平台-商户支付隔离"></a>2、交易平台-商户支付隔离</h2><p>餐掌柜是一个SAAS平台，所有商户的支付都互相隔离。各个商家在开通系统的时候，进入到支付配置页面进行配置，交易配置页面配置密钥信息。</p>
+<p>我们将商户的配置信息存储到redis中，因为支付时经常访问这些配置。所以会频繁的进行mysql数据库的IO，这个数据基本上是不会有变化的，所以为了减少数据库IO，我们会同步到redis中，在增删改配置的时候，也会同步redis中的数据，保持双写一致性。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645192336964-8e1cdb08-8f6a-4848-912e-641bf4f67f80.png"
+                      alt="img"
+                ></p>
+<ol>
+<li>存储到Redis中的支付相关密钥的数据结构是： <strong>String</strong></li>
+<li>支付相关密钥的key：业务前缀+商户id；value：支付渠道VO对象的json字符串</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645192643447-a21f9938-c681-4e77-b905-90b000b86907.png"
+                      alt="img"
+                ></p>
+<ol>
+<li>使用 <strong>@PostConstruct</strong> 注解，当我们启动项目的时候，会将配置缓存到Redis中</li>
+<li>在商户做增删改查的时候进行配置的更新</li>
+<li>在第三方支付的API业务中使用</li>
+</ol>
+<p>数据库的表结构     ab_pay_channel: 支付渠道表:</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645193299007-75914090-b4a0-4dfb-b461-b4709f246b6b.png"
+                      alt="img"
+                ></p>
+<p>核心字段：</p>
+<ol>
+<li><p><strong>channel_name  支付渠道名称</strong></p>
+</li>
+<li><p><strong>other_config     其他配置</strong></p>
+</li>
+<li><p><strong>enterprise_id    商户号</strong>（是不同第三方系统不同的配置，这个字段使用的是表中表，使用list集合，每多一个配置，就集合中多加一条数据。最后将集合对象转换成JSON字符串格式存储到数据库中。）</p>
+<p><strong>在支付处理的过程中，根据前端传入的商户号，从redis中获取对应的支付配置，进行支付隔离</strong></p>
+</li>
+</ol>
+<h2 id="3、支付宝支付"><a href="#3、支付宝支付" class="headerlink" title="3、支付宝支付"></a>3、支付宝支付</h2><h3 id="3-1、支付宝-发起Native支付付款"><a href="#3-1、支付宝-发起Native支付付款" class="headerlink" title="3.1、支付宝-发起Native支付付款"></a>3.1、支付宝-发起Native支付付款</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645193690213-3380cd71-6c8d-4b2e-92d6-3fde514d854c-20220411151353313.png"
+                      alt="img"
+                ></p>
+<ol>
+<li>前端发起支付请求到shop微服务，shop微服务通过远程调用（RPC）trading微服务完成支付。</li>
+<li>对交易订单进行加锁。（这里使用watchdog机制进行加锁，而且是公平锁，保证同一时刻只会有一个线程进来处理，保证数据的原子性。此处并发请求的不只是此接口的请求，还有免单、挂账也会对其造成影响。<strong>公平锁和非公平锁的区别是，非公平锁，锁释放后，多个线程进行抢夺这个锁。公平锁则按照顺序进行获取锁</strong>）</li>
+<li>调用Native支付交易创建。这里采用工厂模式，使用静态代码块构建一个map集合，key为支付渠道，value为具体交易渠道实现类的Bean实例名称。（这里不能直接注入bean对象放入map集合中，原因是我们是使用的静态代码块，静态代码块在类加载之前就加载了，所以当时类还没加载完。根据获得的bean对象的名称字符串，使用工厂模式，从spring上下文对象中获取对象。如果返回为null，则直接报错。）</li>
+<li>通过前端传过来的支付渠道，从IOC容器中获取到具体的支付实现类<strong>AliNativePayHandler</strong>，对交易进行处理，判断交易单参数的完整性，如果缺少参数，那么直接抛出异常。（判断的参数：交易单对象不能为空 订单号不能为空 交易金额不能为空 企业号不能为空 支付渠道不能为空）</li>
+<li>幂等性处理。根据订单号去数据库中查询交易单对象，如果返回值为null，则说明是第一次支付，随机生成一个交易单号即可。如果不为null，则判断交易单的状态，交易单的状态如果为取消订单或者挂账，则重新生成一个交易单号，因为是二次付款。如果为其他状态则直接报错。</li>
+<li>获取支付宝的配置文件，如果为空，抛出异常。</li>
+<li>调用支付宝API面对面支付，设置交易单号，设置支付金额，进行统一下单处理。</li>
+<li>判断是否受理成功，如果受理成功修改交易单信息。（设置统一下单返回编码、设置统一下单返回信息、设置统一下单信息为json格式【用于生产二维码、Android ios唤醒支付等】、修改交易单的状态为FKZ付款中）</li>
+<li>将交易单保存或更新到数据库中。</li>
+<li>构建二维码 , 调用ShowApiService生成二维码链接,设置到交易单对象中。</li>
+<li>根据交易单对象中的二维码地址，调用万维易源的api方法，生成二维码图片，并且返回前端。</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645196802957-e46ff161-25dd-4057-bf92-e9bcaf25f749.png"
+                      alt="img"
+                ></p>
+<ul>
+<li>NativePayFace:  Native支付方式dubbo接口：商户生成二维码，用户扫描支付 </li>
+<li>NativePayFaceImpl:  Native支付方式dubbo接口实现 ,调用适配器进行实现</li>
+<li>NativePayAdapter: 收银员通过收银台或商户后台调用此接口，生成二维码后，展示给用户，由用户扫描二维码完成订单支付。</li>
+<li>NativePayAdapterImpl: Native支付方式适配实现，对交易单加锁，防止支付并发多次生成，同时调用ShowApiService生成二维码图片 <em>1.找到对应适配的实现类 2. 调用实现具体接口的方法</em></li>
+<li>RegisterBeanHandler: IOC容器工具,可以对NativePayHandler获得具体的实现类，例如这里获得实现类：aliNativePayHandler , wechatNativePayHandler</li>
+<li>NativePayHandler:Native支付方式Handler,此类有多个实现 (使用了多态的方式进行实现易扩展 , 易维护)</li>
+<li>AliNativePayHandler: 阿里Native支付方式Handler </li>
+<li>BeforePayHandler:  交易支付前置校验，幂等性处理 </li>
+<li>AlipayConfig:    阿里核心配置,支付宝配置初始化,将配置初始化或更新到redis中 , 移除配置 , 获得配置</li>
+</ul>
+<h3 id="3-2、支付宝-查询Native支付付款结果"><a href="#3-2、支付宝-查询Native支付付款结果" class="headerlink" title="3.2、支付宝-查询Native支付付款结果"></a>3.2、支付宝-查询Native支付付款结果</h3><p>支付成功受理之后，我们会对受理成功的支付进行支付结果处理，我们有2种方式处理Native支付结果：</p>
+<ul>
+<li>在支付平台中配置回调地址，直接由三方推送消息【性能更优越】 -&gt; 不可靠（果有网络等原因，很容易造成没有接受到第三方发来的请求）</li>
+<li>使用计划任务【xxl-job】，主动查询三方（每5秒中，查询一次所有支付中的交易单。这个时间也是有限制的，第三方会有调用设置时间，在一定时间内不能反复调用查询订单的方法，这个需要从第三方的使用说明中查看，然后再调整我们合适的XXL-job执行时间间隔）</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645197074488-73e8b21e-f364-4f0e-9e23-cfe815398159.png"
+                      alt="img"
+                ></p>
+<ol>
+<li><p>NativePayFace实现调用适配,实现查询三方返回的信息</p>
+</li>
+<li><p>根据支付渠道的名称,从IOC容器中获取具体的实现类bean对象</p>
+</li>
+<li><p>adapter适配调用NativePayHandler具体实现,执行底层查询方法</p>
+</li>
+<li><p>交易前置处理 , 校验参数的完整性 , 如果参数不完整 , 那么直接抛出异常</p>
+</li>
+<li><p>如果参数完整,那么通过交易单中的商户id查询支付宝配置 , 如果为空, 那么抛出异常</p>
+</li>
+<li><p>通过Factory使用配置 , 调用支付宝API通过订单号查询支付情况</p>
+</li>
+<li><p>判断是否响应成功 , 受理成功 , 获取交易的状态</p>
+</li>
+<li><ol>
+<li>如果交易的状态为支付取消：TRADE_CLOSED（未付款交易超时关闭，或支付完成后全额退款）,将交易单的状态设置为取消订单</li>
+<li>如果交易的状态为支付成功：TRADE_SUCCESS（交易支付成功）TRADE_FINISHED（交易结束，不可退款）,将交易单的状态改为已结算</li>
+<li>非最终状态不做处理当前交易状态：WAIT_BUYER_PAY（交易创建，等待买家付款）不处理</li>
+</ol>
+</li>
+<li><p>如果为最终状态那么保存或修改数据库中交易单状态</p>
+</li>
+<li><p>返回最终交易单信息</p>
+</li>
+</ol>
+<h4 id="3-3、支付宝-发起Native支付退款"><a href="#3-3、支付宝-发起Native支付退款" class="headerlink" title="3.3、支付宝-发起Native支付退款"></a>3.3、支付宝-发起Native支付退款</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645197452562-714fbd61-c14d-43a8-994f-4f4e238b8197-20220411151427031.png"
+                      alt="img"
+                ></p>
+<ol>
+<li>调用Native退款。</li>
+<li>调用适配器进行退款操作 , 对交易单进行加锁,判断加锁是否成功。</li>
+<li>加锁成功后 , 根据交易单的支付渠道得到具体的实现，使用NativePayHandler接收,底层实现退款操作。</li>
+<li>我们今天的支付类型为支付宝，所以进到AliNativePayHandler实现中。</li>
+<li>根据交易单利用雪花算法生成退款编号，将生成的退款编号设置进交易单对象中。</li>
+<li>退款前置处理，校验参数完整性，如果满足条件，那么再进行校验幂等性。（校验幂等性：查询交易单是否为已结算交易单；如果交易单不存在，或者不为已结算状态,抛出退款失败异常；否则设置订单号到交易单vo对象中，设置交易单id，设置交易金额；根据交易单中的订单号查询是否有退款中的退款记录；如果已经存在退款中的退款记录，那么抛出退款失败的异常）</li>
+<li>获得支付宝的配置文件，判断是否合法，如果不合法，抛出异常。</li>
+<li>发起退款请求，判断是否合法，如果合法，接收第三方返回的受理情况，判断是否成功。</li>
+<li>如果成功，指定该交易单为退款交易单，更新交易单信息。</li>
+<li>保存退款单信息。（将退款单id设置为null、设置退款单号、设置本次退款金额、设置返回编码、设置返回信息）</li>
+<li>如果受理成功，将退款单的状态改为请求中，则改为退款失败状态。</li>
+<li>将退款单保存到数据库中</li>
+<li>返回最终交易单信息</li>
+</ol>
+<h2 id="4、微信支付"><a href="#4、微信支付" class="headerlink" title="4、微信支付"></a>4、微信支付</h2><h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645340983348-656e8565-a625-4ac0-beb2-6d790a4dbfc0.png"
+                      alt="img"
+                ></p>
+<ol>
+<li><strong>NativePayFace：</strong>ative支付方式dubbo接口：商户生成二维码，用户扫描支付 </li>
+<li><strong>NativePayFaceImpl：</strong>Native支付方式dubbo接口实现 </li>
+<li><strong>NativePayAdapter：</strong>Native支付方式适配：商户生成二维码，用户扫描支付 </li>
+<li><strong>NativePayAdapterImpl：</strong>Native支付方式适配实现，对交易单加锁，防止支付并发多次生成，同时调用ShowApiService生成二维码图片 </li>
+<li><strong>RegisterBeanHandler：</strong>IOC容器工具,可以对NativePayHandler获得具体的实现类，例如这里获得实现类：aliNativePayHandler </li>
+<li><strong>NativePayHandler：</strong>Native支付方式Handler,此类有多个实现 </li>
+<li><strong>WechatNativePayHandler：</strong>微信Native支付方式Handler </li>
+<li><strong>BeforePayHandler：</strong>支付前置校验，幂等性处理 </li>
+<li><strong>WechatpayConfig：</strong>微信核心配置 </li>
+<li><strong>WechatPayHttpClient：</strong>微信httpclient </li>
+<li><strong>Config：</strong>微信配置信息 </li>
+<li><strong>Factory：</strong>微信工厂方法</li>
+</ol>
+<h3 id="4-1、微信Native支付付款"><a href="#4-1、微信Native支付付款" class="headerlink" title="4.1、微信Native支付付款"></a>4.1、微信Native支付付款</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645341900542-841a82de-5106-4abd-b3bd-381211b49a47.png"
+                      alt="img"
+                ></p>
+<p><strong>实现流程:</strong></p>
+<ol>
+<li>前端发起支付请求后</li>
+<li>对交易订单进行加锁(这里加的锁和前面不同，使用watchdog的机制，并且同一时刻只会有一个线程进来处理 -此处的并发不止是此接口，免单、挂账等接口也对其有并发情况需要注意)</li>
+<li>根据<strong>支付渠道</strong>从IOC容器中找到NativePayHandler实现,这里我们采用构建一个map , 启动时加载 , 构建map容器中具体实现,如果有新的支付方式易扩展</li>
+<li>在具体实现中首先判断交易单的参数完整性,如果缺少参数,那么程序直接终止</li>
+<li>如果交易单参数完整,那么进行交易幂等性判断</li>
+<li>获取微信配置文件,如果为空,抛出异常</li>
+<li>调用微信API面对面支付,设置交易单号 , 设置实付金额,进行统一下单处理</li>
+<li>判断受理是否成功 , 如果受理成功 , 修改交易单信息</li>
+<li>将交易单信息<strong>保存或更新</strong>到数据库中</li>
+<li>返回交易单信息到adapter适配器,判断统一下单返回信息是否为空,为空则抛出异常</li>
+<li>不为空 , 构建二维码 , 调用<strong>ShowApiService生成二维码链接,设置到交易单对象中</strong></li>
+<li>返回交易单信息给前端(交易单信息中包含二维码的链接)</li>
+</ol>
+<h3 id="4-2、微信-查询Native支付付款结果"><a href="#4-2、微信-查询Native支付付款结果" class="headerlink" title="4.2、微信-查询Native支付付款结果"></a>4.2、微信-查询Native支付付款结果</h3><p>支付成功受理后 , 我们会对受理成功的支付进行支付结果处理,我们有2种方式处理native支付结果:</p>
+<p>1、在支付平台中配置回调地址，直接由三方推送消息 - 不可靠</p>
+<p>2、使用计划任务【xxl-job】，主动查询三方</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645341956473-d4b5d0e6-577b-4c02-883b-def27cf12d32.png"
+                      alt="img"
+                ></p>
+<p>实现流程:</p>
+<ol>
+<li><p>NativePayFace实现调用适配,实现查询三方返回的信息</p>
+</li>
+<li><p>根据支付渠道的名称,从IOC容器中获取具体的实现类bean对象</p>
+</li>
+<li><p>adapter适配调用NativePayHandler具体实现,执行底层查询方法</p>
+</li>
+<li><p>交易前置处理 , 校验参数的完整性 , 如果参数不完整 , 那么直接抛出异常</p>
+</li>
+<li><p>如果参数完整,那么通过交易单中的商户id查询微信配置 , 如果为空, 那么抛出异常</p>
+</li>
+<li><p>通过Factory使用配置 , 调用微信API通过订单号查询支付情况</p>
+</li>
+<li><p>判断是否响应成功 , 受理成功 , 获取交易的状态</p>
+</li>
+<li><ol>
+<li>如果交易的状态为<strong>支付</strong>取消<strong>：</strong>TRADE_CLOSED（未付款交易超时关闭，或支付完成后全额退款）,将交易单的状态设置为取消订单</li>
+<li>如果交易的状态为支付成功：TRADE_SUCCESS（交易支付成功）TRADE_FINISHED（交易结束，不可退款）,将交易单的状态改为已结算</li>
+<li>非最终状态不做处理当前交易状态：WAIT_BUYER_PAY（交易创建，等待买家付款）不处理</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-3、微信-发起Native支付退款"><a href="#4-3、微信-发起Native支付退款" class="headerlink" title="4.3、微信-发起Native支付退款"></a>4.3、微信-发起Native支付退款</h3><p>退款时需要注意：</p>
+<ol>
+<li>必须是发生实际付款后才可发起退款</li>
+<li>退款金额不能超过实际支付金</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645342006180-d429db68-f0da-48bf-9a4d-249e7dc085de.png"
+                      alt="img"
+                ></p>
+<p><strong>实现流程:</strong> </p>
+<ol>
+<li>调用Native退款</li>
+<li>调用适配器进行退款操作 , 对交易单进行加锁,判断加锁是否成功</li>
+<li>加锁成功后 , 根据交易单的支付渠道得到具体的实现,使用NativePayHandler接收,底层实现退款操作</li>
+<li>我们今天的支付类型为微信,所以进到WeChatpayNativePayHandler实现中</li>
+<li>根据交易单利用雪花算法生成退款编号,将生成的退款编号设置进交易单对象中</li>
+<li>退款前置处理,校验参数完整性,如果满足条件,那么再进行校验幂等性</li>
+<li>获得微信的配置文件,判断是否合法,如果不合法,抛出异常</li>
+<li>发起退款请求,判断是否合法,如果合法,接收第三方返回的受理情况,判断是否成功</li>
+<li>如果成功,指定该交易单为退款交易单,更新交易单信息</li>
+<li>保存退款单信息</li>
+<li>如果受理成功,将退款单的状态改为请求中,否则改为退款失败状态</li>
+<li>将退款单保存到数据库中</li>
+<li>返回最终交易单信息</li>
+</ol>
+<h3 id="4-4、微信-查询Native支付退款结果"><a href="#4-4、微信-查询Native支付退款结果" class="headerlink" title="4.4、微信-查询Native支付退款结果"></a>4.4、微信-查询Native支付退款结果</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645342051232-15111e6a-6cf3-4736-b2e4-606e2a1addf5.png"
+                      alt="img"
+                ></p>
+<p>实现流程:</p>
+<ol>
+<li><p>native调用适配进行退款查询</p>
+</li>
+<li><p>根据退款的退款渠道在<em>nativePayHandlers</em>集合中查询具体的实现,根据查询到的实现类名,通过getBean( )方法得到具体的实现类对象</p>
+</li>
+<li><p>调用具体实现的查询退款结果的方法</p>
+</li>
+<li><p>退款前置处理 , 校验退款单的参数是否完整</p>
+</li>
+<li><p>不完整直接抛出查询统一下单交易失败的异常</p>
+</li>
+<li><p>满足条件,weChatpayConfig获取微信的配置 , 容器如果为空那么抛出微信配置为空异常</p>
+</li>
+<li><p>使用配置,调用微信queryRefund( )方法,进行退款查询</p>
+</li>
+<li><p>判断是否查询成功</p>
+</li>
+<li><p>成功, 查询退款的状态,如果状态为【微信退款返回状态】REFUND_SUCCESS:成功</p>
+</li>
+<li><p>那么修改退款单的信息</p>
+</li>
+<li><ol>
+<li>修改退款状态为成功 REFUND_SUCCESS </li>
+<li>修改返回统一编码</li>
+<li>修改返回统一信息</li>
+</ol>
+</li>
+</ol>
+<p>11.根据退款单id修改退款单数据</p>
+<p>思考： 假设 10w个商家， 每个商家有2个门店， 每个门店 20个桌台，每个桌台至少可以每天使用4次，每天订单成交量 70%， 问每天会产生多少条订单？  每月多少条订单？ 一年多少条订单？  假设每条订单数据大小是 2kb， 问一年产生多大数据量，单位：GB？ 1TB&#x3D;1024GB  1GB&#x3D;1024MB</p>
+<ol>
+<li><strong>每天会产生多少条订单 : 11,200,000条订单</strong></li>
+<li><strong>每月多少条订单:  336,000,000条订单</strong></li>
+<li><strong>一年产生多少条订单:  4,032,000,000条订单</strong></li>
+<li><strong>一年产生多大数据量:  7690.4296875G</strong></li>
+</ol>
+<h2 id="5、XXL-JOB"><a href="#5、XXL-JOB" class="headerlink" title="5、XXL-JOB"></a>5、XXL-JOB</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/gangan0623/note/main/img/1645346049564-49fd930d-bd73-429f-93df-a4d3c9b3b029.png"
+                      alt="img"
+                ></p>
+<ul>
+<li><p><strong>执行器：</strong>任务的绑定的执行器，任务触发调度时将会自动发现注册成功的执行器, 实现任务自动发现功能; 另一方面也可以方便的进行任务分组。每个任务必须绑定一个执行器, 可在 “执行器管理” 进行设置</p>
+</li>
+<li><p><strong>任务描述：</strong>任务的描述信息，便于任务管理</p>
+</li>
+<li><p><strong>路由策略：当执行器集群部署时，提供丰富的路由策略，包括</strong></p>
+</li>
+<li><ul>
+<li>FIRST（第一个）：固定选择第一个机器；(根据注册到执行器的顺序)</li>
+<li>LAST（最后一个）：固定选择最后一个机器；</li>
+<li>ROUND（轮询）：</li>
+<li>RANDOM（随机）：随机选择在线的机器；</li>
+<li>CONSISTENT_HASH（一致性HASH）：每个任务按照Hash算法固定选择某一台机器，且所有任务均匀散列在不同机器上。</li>
+<li>LEAST_FREQUENTLY_USED（最不经常使用）：使用频率最低的机器优先被选举；</li>
+<li>LEAST_RECENTLY_USED（最近最久未使用）：最久为使用的机器优先被选举；</li>
+<li>FAILOVER（故障转移）：按照顺序依次进行心跳检测，第一个心跳检测成功的机器选定为目标执行器并发起调度；</li>
+<li>BUSYOVER（忙碌转移）：按照顺序依次进行空闲检测，第一个空闲检测成功的机器选定为目标执行器并发起调度；</li>
+<li>SHARDING_BROADCAST(分片广播)：广播触发对应集群中所有机器执行一次任务，同时系统自动传递分片参数；可根据分片参数开发分片任务；</li>
+</ul>
+</li>
+<li><p><strong>Cron：</strong>触发任务执行的Cron表达式；</p>
+</li>
+<li><p><strong>运行模式：</strong></p>
+</li>
+<li><ul>
+<li>BEAN模式：任务以JobHandler方式维护在执行器端；需要结合 “JobHandler” 属性匹配执行器中任务；</li>
+<li>GLUE模式(Java)：任务以源码方式维护在调度中心；该模式的任务实际上是一段继承自IJobHandler的Java类代码并 “groovy” 源码方式维护，它在执行器项目中运行，可使用@Resource&#x2F;@Autowire注入执行器里中的其他服务；</li>
+<li>GLUE模式(Shell)：任务以源码方式维护在调度中心；该模式的任务实际上是一段 “shell” 脚本；</li>
+<li>GLUE模式(Python)：任务以源码方式维护在调度中心；该模式的任务实际上是一段 “python” 脚本；</li>
+<li>GLUE模式(PHP)：任务以源码方式维护在调度中心；该模式的任务实际上是一段 “php” 脚本；</li>
+<li>GLUE模式(NodeJS)：任务以源码方式维护在调度中心；该模式的任务实际上是一段 “nodejs” 脚本；</li>
+<li>GLUE模式(PowerShell)：任务以源码方式维护在调度中心；该模式的任务实际上是一段 “PowerShell” 脚本；</li>
+</ul>
+</li>
+<li><p><strong>JobHandler：</strong>运行模式为 “BEAN模式” 时生效，对应执行器中新开发的JobHandler类“@JobHandler”注解自定义的value值；</p>
+</li>
+<li><p><strong>阻塞处理策略</strong>：调度过于密集执行器来不及处理时的处理策略；</p>
+</li>
+<li><ul>
+<li>单机串行（默认）：调度请求进入单机执行器后，调度请求进入FIFO队列并以串行方式运行；</li>
+<li>丢弃后续调度：调度请求进入单机执行器后，发现执行器存在运行的调度任务，本次请求将会被丢弃并标记为失败；</li>
+<li>覆盖之前调度：调度请求进入单机执行器后，发现执行器存在运行的调度任务，将会终止运行中的调度任务并清空队列，然后运行本地调度任务；</li>
+</ul>
+</li>
+<li><p><strong>子任务</strong>：每个任务都拥有一个唯一的任务ID(任务ID可以从任务列表获取)，当本任务执行结束并且执行成功时，将会触发子任务ID所对应的任务的一次主动调度。</p>
+</li>
+<li><p><strong>任务超时时间：</strong>支持自定义任务超时时间，任务运行超时将会主动中断任务；</p>
+</li>
+<li><p><strong>失败重试次数；</strong>支持自定义任务失败重试次数，当任务失败时将会按照预设的失败重试次数主动进行重试；</p>
+</li>
+<li><p><strong>报警邮件</strong>：任务调度失败时邮件通知的邮箱地址，支持配置多邮箱地址，配置多个邮箱地址时用逗号分隔；</p>
+</li>
+<li><p><strong>负责人</strong>：任务的负责人；</p>
+</li>
+<li><p><strong>执行参数</strong>：任务执行所需的参数；</p>
+</li>
+</ul>
+<h2 id="6、为什么使用分布式任务调度框架"><a href="#6、为什么使用分布式任务调度框架" class="headerlink" title="6、为什么使用分布式任务调度框架"></a>6、为什么使用分布式任务调度框架</h2><p>​         <strong>任务调度</strong>是指系统为了自动完成特定任务，在约定的特定时刻去执行任务的过程。有了任务调度即可解放更多的人力，而是由系统自动去执行任务。</p>
+<p>​      当前软件的架构已经开始向分布式架构转变，将单体结构拆分为若干服务，服务之间通过网络交互来完成业务处理。在分布式架构下，一个服务往往会部署多个实例来运行我们的业务，如果在这种分布式系统环境下运行任务调度，我们称之为<strong>分布式任务调度</strong>。</p>
+<p>​      <strong>分布式框架下，集群搭建，所以用到了分布式任务调度</strong></p>
+<h2 id="7、项目中使用的定时任务"><a href="#7、项目中使用的定时任务" class="headerlink" title="7、项目中使用的定时任务"></a>7、项目中使用的定时任务</h2><p>在交易单和退款记录的查询中，用到定时任务。</p>
+<h2 id="8、为什么用？业务背景？"><a href="#8、为什么用？业务背景？" class="headerlink" title="8、为什么用？业务背景？"></a>8、为什么用？业务背景？</h2><p>​       我们在支付模块中，调用第三方的API进行生成二维码进行支付。顾客经过二维码付款给第三方，没有经过我们的系统，我们可以选择，让第三方调用我们一个接口，返回支付或者退款成功的信息。但是这种方式会可能因为网络等原因调用失败，第三方也不会对这个接口进行重试。于是我们会丢失这条支付或者退款成功的数据。所以在我们系统中选择主动轮询去查支付中的订单，这里我们就用的是XXL-JOB，每隔10S时间，去查询一次支付中的订单的状态。</p>
+<ol>
+<li>使用主动轮询的原因：分片广播会造成问题，（可能会同时更新数据,导致出现重复的数据，影响效率）</li>
+<li>主动轮询解决的问题：解决了数据不会重复执行的问题，分摊压力。</li>
+<li>查询支付或退款的状态会出现很大的并发压力</li>
+</ol>
+<h2 id="9、怎么使用xxl-job具体配置？"><a href="#9、怎么使用xxl-job具体配置？" class="headerlink" title="9、怎么使用xxl-job具体配置？"></a>9、怎么使用xxl-job具体配置？</h2><p>&lt;1&gt;.pom文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xxl-job --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.xuxueli<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xxl-job-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&lt;2&gt;.配置有两个，一个是application.properties，另外一个是日志配置:logback.xml</p>
+<p>application.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># web port</span></span><br><span class="line"><span class="attr">server.port</span>=<span class="string">$&#123;port:8801&#125;</span></span><br><span class="line"><span class="comment"># no web</span></span><br><span class="line"><span class="comment">#spring.main.web-environment=false</span></span><br><span class="line"><span class="comment">### xxl-job admin address list, such as &quot;http://address&quot; or &quot;http://address01,http://address02&quot;</span></span><br><span class="line"><span class="attr">xxl.job.admin.addresses</span>=<span class="string">http://localhost:8888/xxl-job-admin</span></span><br><span class="line"><span class="comment">### xxl-job, access token</span></span><br><span class="line"><span class="attr">xxl.job.accessToken</span>=<span class="string"></span></span><br><span class="line"><span class="comment">### xxl-job executor appname</span></span><br><span class="line"><span class="attr">xxl.job.executor.appname</span>=<span class="string">xxl-job-executor-sample</span></span><br><span class="line"><span class="comment">### xxl-job executor registry-address: default use address to registry , otherwise use ip:port if address is null</span></span><br><span class="line"><span class="attr">xxl.job.executor.address</span>=<span class="string"></span></span><br><span class="line"><span class="comment">### xxl-job executor server-info</span></span><br><span class="line"><span class="attr">xxl.job.executor.ip</span>=<span class="string"></span></span><br><span class="line"><span class="attr">xxl.job.executor.port</span>=<span class="string">$&#123;executor.port:9999&#125;</span></span><br><span class="line"><span class="comment">### xxl-job executor log-path 创建文件路径 D:/logs</span></span><br><span class="line"><span class="attr">xxl.job.executor.logpath</span>=<span class="string">/data/applogs/xxl-job/jobhandler</span></span><br><span class="line"><span class="comment">### xxl-job executor log-retention-days</span></span><br><span class="line"><span class="attr">xxl.job.executor.logretentiondays</span>=<span class="string">30</span></span><br></pre></td></tr></table></figure>
+
+<p>&lt;3&gt;.xxl-jol类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@XxlJob(value = &quot;nativePayHandlerJob&quot;)</span></span><br><span class="line">    <span class="meta">@GlobalTransactional</span></span><br><span class="line">    <span class="keyword">public</span> ReturnT&lt;String&gt; <span class="title function_">execute</span><span class="params">(String param)</span> &#123;</span><br><span class="line">        <span class="comment">//查询所有支付中的订单</span></span><br><span class="line">        List&lt;TradingVo&gt; tradingVoList = tradingFace.findTradingByTradingState(TradingConstant.FKZ);</span><br><span class="line">        <span class="keyword">for</span> (TradingVo tradingVo : tradingVoList) &#123;</span><br><span class="line">            <span class="built_in">this</span>.synchTradingState(tradingVo);</span><br><span class="line">        &#125;</span><br><span class="line">        ReturnT.SUCCESS.setMsg(<span class="string">&quot;执行-支付同步-成功&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> ReturnT.SUCCESS;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//项目中配置xxl-job使用的路由策略为 : 主动轮询</span></span><br><span class="line"><span class="comment">//使用的阻塞策略为: 单击串行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="10、路由策略是轮询？-为什么选择？-你是怎么考虑的？–业务"><a href="#10、路由策略是轮询？-为什么选择？-你是怎么考虑的？–业务" class="headerlink" title="10、路由策略是轮询？ 为什么选择？ 你是怎么考虑的？–业务"></a>10、路由策略是轮询？ 为什么选择？ 你是怎么考虑的？–业务</h2><ol>
+<li><p>路由策略为：主动轮询</p>
+</li>
+<li><p>选择轮询的理由:</p>
+</li>
+<li><ol>
+<li>1.轮询解决了数据不会重复执行的问题</li>
+<li>2.分摊压力(项目中查询支付结果的的并发压力会很大)</li>
+</ol>
+</li>
+<li><p>考虑进行集群部署</p>
+</li>
+<li><ol>
+<li>否则定时任务可能会出现阻塞的情况</li>
+<li>防止出现单机的宕机情况</li>
+</ol>
+</li>
+</ol>
+<h2 id="11、如果任务执行失败了？-–-业务考虑是否需要重试"><a href="#11、如果任务执行失败了？-–-业务考虑是否需要重试" class="headerlink" title="11、如果任务执行失败了？ – 业务考虑是否需要重试"></a>11、如果任务执行失败了？ – 业务考虑是否需要重试</h2><p>​    任务如果执行失败了，不考虑重试，因为再过设定的时间会再次发起任务,如果进行重试的话，可能会被限流，第三方有限流策略，短时间不能访问多次。（支持自定义任务失败重试次数，当任务失败时将会按照预设的失败重试次数主动进行重试；其中分片任务支持分片粒度的失败重试；）</p>
+<h2 id="12、任务满了怎么办？"><a href="#12、任务满了怎么办？" class="headerlink" title="12、任务满了怎么办？"></a>12、任务满了怎么办？</h2><p>阻塞策略选择的时单机串行，因为任务都是相同的内容。</p>
+<h2 id="13、项目中哪些地方遇到了分布式事务问题？原因是什么？-怎么解决？"><a href="#13、项目中哪些地方遇到了分布式事务问题？原因是什么？-怎么解决？" class="headerlink" title="13、项目中哪些地方遇到了分布式事务问题？原因是什么？ 怎么解决？"></a>13、项目中哪些地方遇到了分布式事务问题？原因是什么？ 怎么解决？</h2><p> *** 2-3个地方遇到的分布式事务**</p>
+<ol>
+<li>在订单结算后,远程调用了TableFace接口,修改了桌台的状态</li>
+<li>在前端发起订单结算时,我们通过订单编号生成一个交易单,创建交易单进行发起支付请求给第三方时</li>
+</ol>
+<p>​       原因: RPC远程调用,并且发生了数据库的写操作</p>
+<p>解决方案：项目中集成seata，在远程调用的方法上加上解决分布式事务的注解@GlobalTransactional。</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/18/%E8%AE%A4%E8%AF%81%E9%89%B4%E6%9D%83/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">认证鉴权</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/18/MybatisPlus%E5%85%A5%E9%97%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">MybatisPlus入门</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">TaoHongqiang</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B"><span class="nav-text">总体支付流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81-PostConstruct"><span class="nav-text">1、@PostConstruct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0-%E5%95%86%E6%88%B7%E6%94%AF%E4%BB%98%E9%9A%94%E7%A6%BB"><span class="nav-text">2、交易平台-商户支付隔离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98"><span class="nav-text">3、支付宝支付</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D-%E5%8F%91%E8%B5%B7Native%E6%94%AF%E4%BB%98%E4%BB%98%E6%AC%BE"><span class="nav-text">3.1、支付宝-发起Native支付付款</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D-%E6%9F%A5%E8%AF%A2Native%E6%94%AF%E4%BB%98%E4%BB%98%E6%AC%BE%E7%BB%93%E6%9E%9C"><span class="nav-text">3.2、支付宝-查询Native支付付款结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D-%E5%8F%91%E8%B5%B7Native%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE"><span class="nav-text">3.3、支付宝-发起Native支付退款</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="nav-text">4、微信支付</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML%E7%B1%BB%E5%9B%BE"><span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E3%80%81%E5%BE%AE%E4%BF%A1Native%E6%94%AF%E4%BB%98%E4%BB%98%E6%AC%BE"><span class="nav-text">4.1、微信Native支付付款</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2%E3%80%81%E5%BE%AE%E4%BF%A1-%E6%9F%A5%E8%AF%A2Native%E6%94%AF%E4%BB%98%E4%BB%98%E6%AC%BE%E7%BB%93%E6%9E%9C"><span class="nav-text">4.2、微信-查询Native支付付款结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3%E3%80%81%E5%BE%AE%E4%BF%A1-%E5%8F%91%E8%B5%B7Native%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE"><span class="nav-text">4.3、微信-发起Native支付退款</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4%E3%80%81%E5%BE%AE%E4%BF%A1-%E6%9F%A5%E8%AF%A2Native%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE%E7%BB%93%E6%9E%9C"><span class="nav-text">4.4、微信-查询Native支付退款结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81XXL-JOB"><span class="nav-text">5、XXL-JOB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6"><span class="nav-text">6、为什么使用分布式任务调度框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-text">7、项目中使用的定时任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F%E4%B8%9A%E5%8A%A1%E8%83%8C%E6%99%AF%EF%BC%9F"><span class="nav-text">8、为什么用？业务背景？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9%E3%80%81%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8xxl-job%E5%85%B7%E4%BD%93%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="nav-text">9、怎么使用xxl-job具体配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10%E3%80%81%E8%B7%AF%E7%94%B1%E7%AD%96%E7%95%A5%E6%98%AF%E8%BD%AE%E8%AF%A2%EF%BC%9F-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%EF%BC%9F-%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E8%80%83%E8%99%91%E7%9A%84%EF%BC%9F%E2%80%93%E4%B8%9A%E5%8A%A1"><span class="nav-text">10、路由策略是轮询？ 为什么选择？ 你是怎么考虑的？–业务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11%E3%80%81%E5%A6%82%E6%9E%9C%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E5%A4%B1%E8%B4%A5%E4%BA%86%EF%BC%9F-%E2%80%93-%E4%B8%9A%E5%8A%A1%E8%80%83%E8%99%91%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E9%87%8D%E8%AF%95"><span class="nav-text">11、如果任务执行失败了？ – 业务考虑是否需要重试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12%E3%80%81%E4%BB%BB%E5%8A%A1%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-text">12、任务满了怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13%E3%80%81%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E9%81%87%E5%88%B0%E4%BA%86%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98%EF%BC%9F%E5%8E%9F%E5%9B%A0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-text">13、项目中哪些地方遇到了分布式事务问题？原因是什么？ 怎么解决？</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
